@@ -26,7 +26,7 @@
 - [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1_kfwsLy8XnPAZ21tJ8mpBHKtlDYR3Co895Z54TbaR3o/edit?usp=sharing)
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1K7N4mvI6YPjwfTuIBAyfjev6hUdsHwAzoWq1B7W8AdY/edit?usp=sharing>
+https://docs.google.com/spreadsheets/d/1KuQF375GX4JRR8dfdcCM_MXN1xQ1qBRfECFdMORTrOU/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
