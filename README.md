@@ -21,9 +21,9 @@
 ボランティアできる場所を探している
 
 ## 設計書
-[ER図](https://drive.google.com/file/d/1y0Ohg8d2hToO2GQC9Nm2mPobiTPkoOEQ/view?usp=sharing)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/1-5DIekoqwaAlQGceX5zI2-zgW2nLeyiC8rv_yLWQcjE/edit?usp=sharing)
-[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1_kfwsLy8XnPAZ21tJ8mpBHKtlDYR3Co895Z54TbaR3o/edit?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1y0Ohg8d2hToO2GQC9Nm2mPobiTPkoOEQ/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1-5DIekoqwaAlQGceX5zI2-zgW2nLeyiC8rv_yLWQcjE/edit?usp=sharing)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1_kfwsLy8XnPAZ21tJ8mpBHKtlDYR3Co895Z54TbaR3o/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1K7N4mvI6YPjwfTuIBAyfjev6hUdsHwAzoWq1B7W8AdY/edit?usp=sharing>
