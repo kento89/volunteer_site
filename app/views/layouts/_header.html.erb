@@ -1,0 +1,31 @@
+<header class="bg-light">
+  <nav class="navbar navbar-light">
+    <div class="container">
+      <%= link_to image_tag("logo.png", width: 67), root_path, class: "navbar-brand" %>
+      <% if customer_signed_in? %>
+        <div class="ml-5">ようこそ<%= current_customer.last_name %>様</div>
+      <% elsif recruiter_signed_in? %>
+        <div class="ml-5">ようこそ<%= current_recruiter.last_name %>様</div>
+      <% end %>
+      <ul class="navbar-nav flex-row navbar">
+        <% if customer_signed_in? %>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "マイページ", public_customers_path(:id) %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ボランティア一覧", public_volunteers_path %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ボランティアステータス", public_customers_path(:id) %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+        <% elsif recruiter_signed_in? %>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ボランティアステータス",recruiter_recruiter_path(:id) %></li>
+            <li class="nav-item btn btn-outline-primary mr-2"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
+        <% else %>
+          <li class="nav-item mr-2"><%= link_to "top", root_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "about", homes_about_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "signup", new_customer_registration_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "signin", new_customer_session_path, class: "btn btn-outline-primary" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
