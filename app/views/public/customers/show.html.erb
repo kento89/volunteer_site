@@ -1,0 +1,77 @@
+<main>
+  <div class="container mt-3">
+  <h2>マイページ</h2>
+    <div class="row mt-5 mb-5">
+      <%# @customer.each do |customer| %>
+      <div class="col-3">
+        <%#= attachment_image_tag @customer, :image_id, :fill, 600, 600, follback: "demo.jpg" %>
+        <%= attachment_image_tag @customer, :image, size: 15*15, fallback: "man2.jpg", class: "img-fit" %>
+       </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">名前</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.last_name %><%= @customer.first_name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">フリガナ</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">郵便番号</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.postal_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">住所</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.address %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">電話番号</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.phone_number %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">メールアドレス</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.email %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">ボランティア経験</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.experience %>
+          </div>
+        </div>
+      </div>
+      <%# end %>
+      <div class="col-3">
+        <h5>予定しているボランティア</h5>
+        <div class="text-right">
+          <%= link_to "編集する", edit_public_customers_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

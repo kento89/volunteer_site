@@ -1,0 +1,97 @@
+<main>
+  <div class="container">
+    <h2>ボランティア登録</h2>
+    <div class="row">
+      <div class="col-8">
+        <%= form_with model: @volunteer, url: {controller: 'volunteers', action: 'create'}, local:true, method: :post do |f| %>
+          <div class="row">
+            <div class="col-4">
+              <p>ボランティア名</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>概要　100文字以内<br />
+              ※ボランティア一覧に載せる説明</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>説明</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>実施場所</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>参加するメリット</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>必要物品</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>注意点</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>コメント</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>期日</p>
+            </div>
+            <div class="col-8">
+              <%= f.text_field :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p>ジャンル</p>
+            </div>
+            <div class="col-8">
+              <%= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
+            </div>
+          </div>
+          
+      </div>
+      <div class="col-4">
+        
+          <%= f.submit '投稿' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

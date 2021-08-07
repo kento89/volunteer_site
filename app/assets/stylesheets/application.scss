@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+.navbar{
+  display: flex;
+  flex-dirextion: row;
+}
+
+body{
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
+}

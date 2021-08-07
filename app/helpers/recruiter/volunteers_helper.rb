@@ -1,0 +1,2 @@
+module Recruiter::VolunteersHelper
+end
