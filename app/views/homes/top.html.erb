@@ -38,16 +38,26 @@
     <h2 class="text-center mt-5 mb-5">
       申し込みはこちらから
     </h2>
-    <div class="text-center">
-      <%= link_to "sign", new_customer_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-    </div>
-    <h2 class="text-center mt-5 mb-5">
-      ボランティアのお願いをするならこちらから
-    </h2>
-    <div class="text-center">
-      <%= link_to "すでに募集人登録済み", new_recruiter_volunteer_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-      <%= link_to "募集人 signup", new_recruiter_session_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-    </div>
+    <% if customer_signed_in? %>
+      <div class="text-center">
+        <%= link_to "募集中のボランティアを探す", public_volunteers_path, class: "btn btn-outline-primary mt-5 mb-5" %>
+      </div>
+    <% elsif recruiter_signed_in? %>
+      <div class="text-center">
+        <%= link_to "ボランティア募集を投稿する", new_recruiter_volunteer_path, class: "btn btn-outline-primary mt-5 mb-5" %>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <%= link_to "会員登録", new_customer_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
+      </div>
+      <h2 class="text-center mt-5 mb-5">
+        ボランティアのお願いをするならこちらから
+      </h2>
+      <div class="text-center">
+          <%= link_to "すでに募集人登録済み", new_recruiter_session_path, class: "btn btn-outline-primary mt-5 mb-5" %>
+          <%= link_to "募集人 signup", new_recruiter_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
+      </div>
+    <% end %>
     
     <div class="bottom_visual"></div>
 </main>

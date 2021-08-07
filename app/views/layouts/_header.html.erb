@@ -1,7 +1,7 @@
 <header class="bg-light">
   <nav class="navbar navbar-light">
     <div class="container">
-      <%= link_to image_tag("logo.png", width: 67), root_path, class: "navbar-brand" %>
+      <%= link_to image_tag("P.jpg", width: 67), root_path, class: "rounded-circle" %>
       <% if customer_signed_in? %>
         <div class="ml-5">ようこそ<%= current_customer.last_name %>様</div>
       <% elsif recruiter_signed_in? %>

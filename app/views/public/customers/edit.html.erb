@@ -1,12 +1,58 @@
 <main>
-  <div class="container">
+  <div class="container mt-3 mb-5">
+    <h2 class="mb-5">プロフィール編集</h2>
+      <%= form_with model: @customer, url: '/public/customers', method: :patch, local: true do |f| %>
+      <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
     <div class="row">
-      <div class="col-5">
-        
+      <div class="col-4">
+        <%= attachment_image_tag @customer, :image, :fill, 50, 50, fallback: "", class: "img-fit" %>
       </div>
-      <div class="col-7">
-        
+      <div class="col-8">
+        <div class="field row">
+          <p class="col-4">名前</p>
+          <p class="col-8">
+            <%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true %>
+            <%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true %>
+          </p>
+        </div>
+        <div class="field row">
+          <p class="col-4">フリガナ</p>
+          <p class="col-8">
+            <%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true %>
+            <%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true %>
+          </p>
+        </div>
+        <div class="field row">
+          <p class="col-4">郵便番号</p>
+          <p class="col-8">
+          <%= f.text_field :postal_number, autofocus: true %>
+          </p>
+        </div>
+        <div class="field row">
+          <p class="col-4">住所</p>
+          <p class="col-8">
+          <%= f.text_field :address, autofocus: true %>
+          </p>
+        </div>
+        <div class="field row">
+          <p class="col-4">電話番号</p>
+          <p class="col-8">
+          <%= f.text_field :phone_number, autofocus: true %>
+        </div>
+        <div class="field row">
+          <p class="col-4">EMAIL</p>
+          <p class="col-8">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="field row">
+          <p class="col-4">ボランティア経験</p>
+          <p class="col-8">
+            <%= f.radio_button :experience, true %><%= f.label :experience, "あり", {value: true, style: 'display: inline-block;'} %>
+            <%= f.radio_button :experience, false %><%= f.label :experience, "なし", {value: false, style: 'display: inline-block;'} %>
+        </div>
+      <%= f.submit "変更を保存" %>
       </div>
     </div>
+      <% end %>
   </div>
 </main>
