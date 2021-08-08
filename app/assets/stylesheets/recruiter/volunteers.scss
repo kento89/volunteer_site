@@ -1,7 +1,19 @@
 // Place all the styles related to the recruiter/Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-img#preview{
-  width: 100px;
-  height: 100px;
+#imgPreviewField{
+  img{
+    height: 100px;
+    width: 100px;
+  }
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap    : wrap;
+  flex-wrap        : wrap;
+}
+
+body{
+    padding-top: 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
 }

@@ -7,7 +7,12 @@ class Recruiter::VolunteersController < ApplicationController
   end
 
   def create
-    
+    volunteer=Volunteer.new(volunteer_params)
+    if volunteer.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def index
@@ -23,6 +28,11 @@ class Recruiter::VolunteersController < ApplicationController
   end
 
   def destroy
+  end
+  
+  private
+  def volunteer_params
+    params.require(:volunteer).permit(:name, :a_litle_explanation, :explanation, :place, :time, :people, :merit, :necessary_item, :important_point, :comment, :limit, :genre)
   end
 
 end
