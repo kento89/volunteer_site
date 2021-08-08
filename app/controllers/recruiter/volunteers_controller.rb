@@ -2,9 +2,12 @@ class Recruiter::VolunteersController < ApplicationController
 
   def new
     @volunteer=Volunteer.new
+    @image=Image.new
+    @images=Image.all
   end
 
   def create
+    
   end
 
   def index

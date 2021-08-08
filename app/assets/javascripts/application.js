@@ -13,8 +13,33 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require moment
+//= require moment/ja.js
+//= require tempusdominus-bootstrap-4.js
 
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+   $(document).on('turbolinks:load', function () {
+    $('#limit').datetimepicker({
+      format: 'YYYY-MM-DD'
+    });
+  });
+  
+//   $('#myImage').on('change', function (e) {
+//     var reader = new FileReader();
+//     reader.onload = function (e) {
+//         $("#preview").attr('src', e.target.result);
+//     }
+//     reader.readAsDataURL(e.target.files[0]);
+// });
+
+function setImage(target) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("preview").setAttribute('src', e.target.result);
+        }
+        reader.readAsDataURL(target.files[0]);
+    };

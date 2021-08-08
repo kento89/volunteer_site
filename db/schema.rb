@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_001415) do
+ActiveRecord::Schema.define(version: 2021_08_07_100852) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_001415) do
     t.string "necessary_item", null: false
     t.text "important_point", null: false
     t.text "comment", null: false
-    t.datetime "limit", null: false
+    t.date "limit", null: false
     t.integer "genre", default: 0, null: false
     t.boolean "recruiter_status", default: true, null: false
     t.boolean "volunteer_status", default: false, null: false
