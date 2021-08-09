@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show]
+  resources :image, only: [:create, :update, :destroy]
 
 end

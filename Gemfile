@@ -85,3 +85,7 @@ gem 'rubocop-airbnb'
 gem 'fullcalendar-rails'
 
 gem 'momentjs-rails'
+
+gem "bootstrap4-datetime-picker-rails"
+
+gem "font-awesome-rails"
