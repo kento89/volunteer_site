@@ -5,44 +5,49 @@
       <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= attachment_image_tag @customer, :image, :fill, 50, 50, fallback: "", class: "img-fit" %>
+        <%= attachment_image_tag @customer, :image, size: 18*18, fallback: "", class: "img-fit rounded-circle mb-3" %>
+        <div class="field">
+          <p>アイコンを編集する</p>
+          <%= f.attachment_field :image %>
+        </div>
+        <div class="mt-4"><%= f.text_field :comment, autofocus: true, class: "form-control input-lg" %></div>
       </div>
       <div class="col-8">
         <div class="field row">
           <p class="col-4">名前</p>
-          <p class="col-8">
-            <%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true %>
-            <%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true %>
-          </p>
+          <div class="col-8 row">
+            <div class="col-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
+            <div class="col-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
+          </div>
         </div>
         <div class="field row">
           <p class="col-4">フリガナ</p>
-          <p class="col-8">
-            <%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true %>
-            <%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true %>
-          </p>
+          <div class="col-8 row">
+            <p class="col-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></p>
+            <p class="col-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></p>
+          </div>
         </div>
         <div class="field row">
           <p class="col-4">郵便番号</p>
-          <p class="col-8">
-          <%= f.text_field :postal_number, autofocus: true %>
+          <p class="col-4">
+          <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
           <p class="col-4">住所</p>
           <p class="col-8">
-          <%= f.text_field :address, autofocus: true %>
+          <%= f.text_field :address, autofocus: true, class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
           <p class="col-4">電話番号</p>
           <p class="col-8">
-          <%= f.text_field :phone_number, autofocus: true %>
+          <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg" %>
         </div>
         <div class="field row">
           <p class="col-4">EMAIL</p>
           <p class="col-8">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg" %>
         </div>
         <div class="field row">
           <p class="col-4">ボランティア経験</p>
@@ -50,7 +55,7 @@
             <%= f.radio_button :experience, true %><%= f.label :experience, "あり", {value: true, style: 'display: inline-block;'} %>
             <%= f.radio_button :experience, false %><%= f.label :experience, "なし", {value: false, style: 'display: inline-block;'} %>
         </div>
-      <%= f.submit "変更を保存" %>
+      <%= f.submit "変更を保存", class: "btn btn-outline-primary" %>
       </div>
     </div>
       <% end %>

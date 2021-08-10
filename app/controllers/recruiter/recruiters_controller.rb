@@ -22,7 +22,7 @@ class Recruiter::RecruitersController < ApplicationController
   end
   
   def params_recruiter
-    params.require(:recruiter).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_number,:address,:phone_number,:comment,:image)
+    params.require(:recruiter).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postal_number,:address,:phone_number,:image)
   end
   
 end
