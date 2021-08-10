@@ -4,9 +4,11 @@
     <div class="row mt-5 mb-5">
       <%# @customer.each do |customer| %>
       <div class="col-3">
-        <%#= attachment_image_tag @customer, :image_id, :fill, 600, 600, follback: "demo.jpg" %>
-        <%= attachment_image_tag @customer, :image, size: 15*15, fallback: "man2.jpg", class: "img-fit" %>
-       </div>
+        <%= attachment_image_tag @customer, :image, size: 15*15, fallback: "man2.jpg", class: "img-fit rounded-circle" %>
+        <div class="my_comment mt-3">
+          <p><%= @customer.comment %></p>
+        </div>
+      </div>
       <div class="col-6">
         <div class="row">
           <div class="col-5">
