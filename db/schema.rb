@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_07_100852) do
+ActiveRecord::Schema.define(version: 2021_08_10_084044) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_100852) do
     t.boolean "customer_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "volunteer_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_100852) do
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "volunteer_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -75,6 +77,15 @@ ActiveRecord::Schema.define(version: 2021_08_07_100852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "volunteer_images", force: :cascade do |t|
+    t.integer "volunteer_id"
+    t.integer "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_volunteer_images_on_image_id"
+    t.index ["volunteer_id"], name: "index_volunteer_images_on_volunteer_id"
+  end
+
   create_table "volunteers", force: :cascade do |t|
     t.string "name", null: false
     t.text "a_litle_explanation", null: false
@@ -92,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_100852) do
     t.boolean "volunteer_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "recruiter_id"
   end
 
 end
