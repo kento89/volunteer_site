@@ -28,22 +28,6 @@
     });
   });
   
-//   $('#myImage').on('change', function (e) {
-//     var reader = new FileReader();
-//     reader.onload = function (e) {
-//         $("#preview").attr('src', e.target.result);
-//     }
-//     reader.readAsDataURL(e.target.files[0]);
-// });
-
-// function setImage(target) {
-//         var reader = new FileReader();
-//         reader.onload = function (e) {
-//             document.getElementById("preview").setAttribute('src', e.target.result);
-//         }
-//         reader.readAsDataURL(target.files[0]);
-//     };
-    
     let key = 0;
     function loadImage(obj) {
     for (i = 0; i < obj.files.length; i++) {
@@ -69,3 +53,11 @@
         fileReader.readAsDataURL(obj.files[i]);
     }
 }
+
+$(function(){
+    $('#slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+});

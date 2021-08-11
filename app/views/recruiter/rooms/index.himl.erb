@@ -1,0 +1,7 @@
+<h1>recruiter/room一覧</h1>
+<% @volunteer.each do |reservation| %>
+  <div>
+    <%= reservation.name %>
+    <%= link_to "DM", recruiter_room_path(volunteer) %>
+  </div>
+<% end %>
