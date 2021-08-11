@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
+class DeviseCreateRecruiters < ActiveRecord::Migration[5.2]
   def change
-    create_table :customers do |t|
+    create_table :recruiters do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -31,28 +31,23 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+      
       t.string :last_name, null: false
       t.string :first_name, null: false
       t.string :last_name_kana, null: false
       t.string :first_name_kana, null: false
-      t.integer :postal_number, null: false
+      t.integer :postal_code, null: false
       t.string :address, null: false
       t.integer :phone_number, null: false
-      t.boolean :experience, null: false, default: false
-      t.text :comment
-      t.string :image_id
-      t.boolean :volunteer_status, null: false, default: false
-      t.boolean :customer_status, null: false, default: false
-      t.integer :volunteer_id
-
+      t.string :profile_image_url, null: false
+      t.boolean :recruiter_status, null: false, default: false
 
       t.timestamps null: false
     end
 
-    add_index :customers, :email,                unique: true
-    add_index :customers, :reset_password_token, unique: true
-    # add_index :customers, :confirmation_token,   unique: true
-    # add_index :customers, :unlock_token,         unique: true
+    add_index :recruiters, :email,                unique: true
+    add_index :recruiters, :reset_password_token, unique: true
+    # add_index :recruiters, :confirmation_token,   unique: true
+    # add_index :recruiters, :unlock_token,         unique: true
   end
 end

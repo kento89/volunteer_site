@@ -1,0 +1,3 @@
+class VolunteerImage < ApplicationRecord
+ 
+end

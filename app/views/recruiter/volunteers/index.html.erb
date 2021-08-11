@@ -11,7 +11,9 @@
       </div>
       <div class="row mt-3 mb-3">
         <div class="col-8">
-          <%= attachment_image_tag volunteer, :images_attributes %>
+          <% volunteer.images.each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 200, 120, format: "jpg" %>
+          <% end %>
         </div>
         <div class="col-4">
           <%= volunteer.a_litle_explanation %>
