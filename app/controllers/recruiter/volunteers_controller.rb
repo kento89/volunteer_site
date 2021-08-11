@@ -9,9 +9,9 @@ class Recruiter::VolunteersController < ApplicationController
     @volunteer=Volunteer.new(volunteer_params)
     @volunteer.recruiter_id = current_recruiter.id
     if @volunteer.save!
-      # # params[:images_attributes][:"0"][:image].each do |image|
-      #   @volunteer.images.build(image)
-      # end
+      params[:images_attributes][:"0"][:image].each do |image|
+        Image.create(volunteer_id: @volunteer.id, image: image)
+      end
       redirect_to root_path
     else
       render 'new'
@@ -67,7 +67,6 @@ class Recruiter::VolunteersController < ApplicationController
       :limit,
       :genre,
       :recruiter_id
-      # images_attributes:[:image]
       )
   end
 

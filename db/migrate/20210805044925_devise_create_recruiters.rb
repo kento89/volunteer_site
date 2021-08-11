@@ -36,10 +36,10 @@ class DeviseCreateRecruiters < ActiveRecord::Migration[5.2]
       t.string :first_name, null: false
       t.string :last_name_kana, null: false
       t.string :first_name_kana, null: false
-      t.integer :postal_code, null: false
+      t.integer :postal_number, null: false
       t.string :address, null: false
       t.integer :phone_number, null: false
-      t.string :profile_image_url, null: false
+      t.string :image_id, null: false
       t.boolean :recruiter_status, null: false, default: false
 
       t.timestamps null: false
