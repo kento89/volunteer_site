@@ -1,1 +1,98 @@
-<h1>customer/</h1>
+<%= render partial: 'layouts/header' %>
+<div class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-5">
+          <h2><%= @volunteer.name %></h2>
+        </div>
+        <div class="col-2 mt-2">
+          <p class="btn btn-light">実施日</p>
+          <p><%= @volunteer.time %></p>
+        </div>
+        <div class="col-2">
+          <p class="btn btn-light mt-2">募集人数</p>
+          <p><%= @volunteer.people %></p>
+        </div>
+        <div class="col-3 mt-2">
+          <p class="btn btn-light">募集期限</p>
+          <p><%= @volunteer.limit %></p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">説明</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.explanation %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">実施場所</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.place %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">参加するメリット</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.merit %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">必要物品</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.necessary_item %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">注意点</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.important_point %>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-3">
+          <p class="btn btn-light">コメント</p>
+        </div>
+        <div class="col-9">
+          <%= @volunteer.comment %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="frame mt-5" id="slider">
+        <% @volunteer.images.each do |image| %>
+          <%= attachment_image_tag image, :image, :fill, 400, 400, format: "jpg" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-8"></div>
+    <div class="col-4">
+        <% if recruiter_signed_in? %>
+          <div class="row">
+            <div class="col-6 text-center">
+              <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
+            </div>
+            <div class="col-6 text-center">
+              <%= link_to "チャットルーム", room_path(@room), class: "btn btn-outline-primary" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="text-center">
+            <%= link_to "チャットルーム", room_path(@room), class: "btn btn-outline-primary" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

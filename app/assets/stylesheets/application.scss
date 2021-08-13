@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "tempusdominus-bootstrap-4.css";
 @import "bootstrap";
@@ -24,4 +25,42 @@
 
 body{
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
+}
+
+.slick-next{
+  right: 10px;
+  z-index: 100;
+}
+
+.slick-prev{
+  left: 10px;
+  z-index: 100;
+}
+
+.frame{
+  display: inline-block;
+  position: relative;
+}
+
+.frame:after{
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform: rotate(3deg);
+  background: #fff;
+  z-index: -1;
+}
+
+.border-index{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }

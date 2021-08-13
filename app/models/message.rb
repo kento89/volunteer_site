@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :customer
-  belongs_to :recruiter
+  belongs_to :customer, required: false
+  belongs_to :recruiter, required: false
   belongs_to :room
 end

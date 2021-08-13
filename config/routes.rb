@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     resources :volunteers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
   
-  resources :messages, only: [:create]
-  resources :rooms, only: [:create, :show]
+  
   resources :image, only: [:create, :update, :destroy]
-
+  resources :rooms, only: [:create, :show]
+  resource :messages, only: [:create]
 end
