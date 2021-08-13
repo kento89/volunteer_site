@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     patch 'customers/unsustainable' => 'customers#exit'
     resources :recruiters, only: [:show]
     resources :volunteers, only: [:index, :show]
-    resources :rooms, only: [:index, :show]
-    resource :messages, only: [:create]
   end
   
   namespace :recruiter do
@@ -29,11 +27,10 @@ Rails.application.routes.draw do
     patch 'recruiters/unsustainable' => 'customers#exit'
     resources :customers, only: [:show]
     resources :volunteers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-    resources :rooms, only: [:index, :show]
-    resource :messages, only: [:create]
   end
   
   
   resources :image, only: [:create, :update, :destroy]
-
+  resources :rooms, only: [:create, :show]
+  resource :messages, only: [:create]
 end

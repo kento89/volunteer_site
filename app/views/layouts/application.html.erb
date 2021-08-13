@@ -13,9 +13,8 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/header' %>
-    <p id="notice"><%= notice %></p>
     <%= yield %>
+    <p id="notice"><%= notice %></p>
     <%= render partial: 'layouts/footer' %>
   </body>
 </html>

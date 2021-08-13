@@ -1,3 +1,4 @@
+<%= render partial: 'layouts/header' %>
 <div class="container">
     <h2>ボランティア登録</h2>
     <%= form_with model: @volunteer, url: {controller: 'volunteers', action: 'update'}, local:true do |f| %>

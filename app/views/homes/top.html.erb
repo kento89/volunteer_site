@@ -1,10 +1,39 @@
 <main>
+      <% if customer_signed_in? %>
+        <div class="ml-5">ようこそ<%= current_customer.last_name %>様</div>
+      <% elsif recruiter_signed_in? %>
+        <div class="ml-5">ようこそ<%= current_recruiter.last_name %>様</div>
+      <% end %>
     <div class="top_visual">
       <div class="container">
-          <h3 class=".top-comment text-center d-flex align-items-center" style="height:300px;">まだ見ぬ新たな出会い</h3>
+          <h2 class=".top-comment d-flex align-items-center" style="height:800px;">まだ見ぬ新たな出会い</h2>
       </div>
     </div>
-    <h2 class="text-center mt-5 mb-5">
+    <ul class="row-nav">
+        <% if customer_signed_in? %>
+          <div class="navbar row text-center">
+            <li class="nav-item col-3 border-right lead"><%= link_to "マイページ", public_customers_path(:id) %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティア一覧", public_volunteers_path %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティアステータス", public_customers_path(:id) %></li>
+            <li class="nav-item col-3 lead"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+          </div>
+        <% elsif recruiter_signed_in? %>
+          <div class="navbar row text-center">
+            <li class="nav-item col-3 border-right lead"><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
+            <li class="nav-item col-3 lead"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
+          </div>
+        <% else %>
+          <div class="navbar row text-center">
+            <li class="nav-item col-3 border-right lead"><%= link_to "top", root_path %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "about", homes_about_path %></li>
+            <li class="nav-item col-3 border-right lead"><%= link_to "signup", new_customer_registration_path %></li>
+            <li class="nav-item col-3 lead"><%= link_to "signin", new_customer_session_path %></li>
+          </div>
+        <% end %>
+      </ul>
+    <h2 class="t-main d-flex align-items-center">
       あなたはボランティアにどんなイメージを持っていますか？
     </h2>
     <ul class="volunteer-image text-center bg-light pt-5 pb-5">
@@ -58,6 +87,6 @@
           <%= link_to "募集人 signup", new_recruiter_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
       </div>
     <% end %>
-    
+
     <div class="bottom_visual"></div>
 </main>

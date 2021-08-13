@@ -12,6 +12,7 @@ class Recruiter::VolunteersController < ApplicationController
       params[:images_attributes][:"0"][:image].each do |image|
         Image.create(volunteer_id: @volunteer.id, image: image)
       end
+      @room = Room.find_by(volunteer_id: params[:id])
       redirect_to root_path
     else
       render 'new'
@@ -24,6 +25,7 @@ class Recruiter::VolunteersController < ApplicationController
 
   def show
     @volunteer = Volunteer.find(params[:id])
+    @room = @volunteer.room
   end
 
   def edit
