@@ -24,12 +24,7 @@ class RoomsController < ApplicationController
 
     @message = Message.new
     @messages = Message.where(room_id: @room.id)
-    # room = Room.find(params[:id])
-    # room.check_chats_notification(current_customer)
-    # customer_id = room.user_rooms.where.not(customer_id: current_customer.id).select(:customer_id)
-    # @customer = Customer.where(id: customer_id).first
-    # @messages = room.messages.includes(:customer)
-    # @message = Message.new(room_id: room.id)
+    @volunteer = @room.volunteer
   end
 
   private
