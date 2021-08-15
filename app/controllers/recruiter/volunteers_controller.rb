@@ -26,6 +26,11 @@ class Recruiter::VolunteersController < ApplicationController
   def show
     @volunteer = Volunteer.find(params[:id])
     @room = @volunteer.room
+    # @room = Room.find(params[:id])
+    # Messsage.where(room_id: @room.id)でメッセージを取得。
+    # Message.newで@messageのインスタンスを作成してformに値を渡す。
+    @message = Message.new
+    @messages = Message.where(room_id: @room.id)
   end
 
   def edit

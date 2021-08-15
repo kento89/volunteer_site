@@ -74,7 +74,43 @@
           <%= attachment_image_tag image, :image, :fill, 400, 400, format: "jpg" %>
         <% end %>
       </div>
-    </div>
+        <div class="open-window">
+          <%#= render partial: 'rooms/show', locals: {message: @message, room: @room} %>
+          <h5><%= @volunteer.name %>のチャットルーム</h5>
+              <div id="chats">
+                <% if @messages.blank? %>
+                  <p>メッセージはありません</p>
+                <% else%>
+                  <% @messages.each do |message| %>
+                      <% if message.customer != nil %>
+                        <div class="mycomment">
+                          <p><%= message.message %></p>
+                        </div>
+                        <div><%= message.customer.last_name %></div>
+                      <% else %>
+                        <div class="fukidasi">
+                          <div class="faceicon">
+                            <%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                          </div>
+                          <div class="chatting">
+                            <div class="says">
+                              <p><%= message.message %></p>
+                            </div>
+                            <div class="name"><%= message.recruiter.last_name %></div>
+                          </div>
+                        </div>
+                      <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+              <%= form_with model: @message, url: messages_path, class: "send-form", local: true do |f| %>
+                <%= f.text_field :message, class:"address-new-form" %>
+                <%= f.hidden_field :room_id, value: @room.id %>
+                <%= f.submit "送信", class:"register-green-btn" %>
+              <% end %>
+
+        </div>
+      </div>
   </div>
   <div class="row mb-5">
     <div class="col-8"></div>
@@ -84,7 +120,9 @@
           <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
         </div>
         <div class="col-6 text-center">
-          <%= link_to "チャットルーム", room_path(@room), class: "btn btn-outline-primary" %>
+          <input type="button" class= "btn2" value="表示ボタン" style= "margin: 20px;">
+          <input type="button" class= "btn1" value="非表示ボタン" style= "margin: 20px;">
+          <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn btn-outline-primary" %>
         </div>
       </div>
     </div>

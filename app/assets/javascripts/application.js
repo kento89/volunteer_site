@@ -61,3 +61,23 @@ $(document).on('turbolinks:load', function(){
         autoplaySpeed: 2000,
     });
 });
+
+
+$(function(){
+  $('#go_chat').on('click', function(){
+    window.open('room_path(@room)','subwin','width=300,height=300');
+    return false;
+  });
+});
+
+
+// チャット画面の表示非表示を切り替える
+// $(document).on('turbolinks:load', function() {
+//   $('.btn1').click(function(){
+//     $('.open_window').addClass('.off');
+//   });
+//   $('.btn2').click(function(){
+//     $('.open_window').removeClass('.off');
+//   });
+// });
+
