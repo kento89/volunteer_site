@@ -23,19 +23,7 @@ class Volunteer < ApplicationRecord
     if room != nil
       return room
     end
-    return Room.create() # 必要なパラメータ設定してあげる
+    return Room.create(volunteer_id:self.id) # 必要なパラメータ設定してあげる
   end
-  
-  # 検索scope
-  scope :search, -> (search_params) do
-    return if search_params.blank?
 
-    name_like(search_params[:name])
-      .genre_is(search_params[:genre])
-      .limit_to(search_params[:limit])
-  end
-  scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
-  scope :genre_is, -> (genre) { where(genre: genre) if genre.present? }
-  scope :limit_to, -> (limit) { where('limit <= ?', limit) if to.present? }
-  
 end

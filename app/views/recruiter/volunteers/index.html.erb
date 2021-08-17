@@ -3,12 +3,16 @@
   <h1>ボランティア一覧</h1>
   
   <!--検索フォーム-->
+  <div class="search">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field 'search[value]' %>
+      <%= f.text_field :name %>
       <%#= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
       <%= f.submit :'検索' %>
     <% end %>
+  </div>
 
+<!--もしtext_fieldが空であればindexを表示して、そうでなければsearchを表示-->
+<%# if text_field empty? %>
   <% @volunteer.each do |volunteer| %>
   <div class="row mt-3 mb-3 border-index">
     <div class="col-10 mt-2 mb-2">
@@ -36,4 +40,9 @@
     </div>
   </div>
   <% end %>
+<%# else %>
+  <%#= render 'search/search', volunteer: @volunteer %>
+<%# end %>
+
+  
 </div>
