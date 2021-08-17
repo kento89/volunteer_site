@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     # Messsage.where(room_id: @room.id)でメッセージを取得。
     # Message.newで@messageのインスタンスを作成してformに値を渡す。
-
+    # @room.check_chats_notification(current_recruiter)
     @message = Message.new
     @messages = Message.where(room_id: @room.id)
     @volunteer = @room.volunteer
@@ -36,14 +36,6 @@ class RoomsController < ApplicationController
     end
     return true
   end
-
-  # def set_room
-  #   @room = Room.find_by(volunteer_id: params[:id])
-  #   if @room.nil?
-  #     @room = Room.new(volunteer_id: params[:id])
-  #     redirect_to public_rooms_path, alert: 'メッセージルームへ入れませんでした'
-  #   end
-  # end
 
 end
 

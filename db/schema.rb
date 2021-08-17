@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_105914) do
+ActiveRecord::Schema.define(version: 2021_08_15_062554) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_105914) do
     t.integer "customer_id"
     t.integer "recruiter_id"
     t.integer "room_id"
+    t.boolean "checked", default: false # ここじゃなくてnotifyテーブルを作りましょう。これだと一人しか通知できないです。
   end
 
   create_table "recruiters", force: :cascade do |t|

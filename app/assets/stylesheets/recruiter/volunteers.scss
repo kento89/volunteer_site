@@ -22,11 +22,12 @@ body{
    position: relative;
  }
 
+// チャット小ページを表示
 .open-window{
     position: absolute;
     top:0;
     right:0;
-    background-color: red;
+    background-color: #EEFFFF;
     width: 400px;
     height: 550px;
     padding: 30px;
@@ -34,11 +35,12 @@ body{
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
     overflow-y: scroll;
 }
-
+// チャット小ページを非表示
 .off {
   display: none;
 }
 
+// チャット小ページのレイアウト
 .chat-b{
   postion: absolute;
   right: 5px;

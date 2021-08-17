@@ -74,8 +74,9 @@
           <%= attachment_image_tag image, :image, :fill, 400, 400, format: "jpg" %>
         <% end %>
       </div>
-        <div class="open-window">
-          <%#= render partial: 'rooms/show', locals: {message: @message, room: @room} %>
+
+      <!--チャット小ルーム-->
+        <div class="open-window off" id="chatRoom">
           <h5><%= @volunteer.name %>のチャットルーム</h5>
               <div id="chats">
                 <% if @messages.blank? %>
@@ -108,8 +109,9 @@
                 <%= f.hidden_field :room_id, value: @room.id %>
                 <%= f.submit "送信", class:"register-green-btn" %>
               <% end %>
-
         </div>
+        <!--ここまでチャット-->
+
       </div>
   </div>
   <div class="row mb-5">
@@ -119,10 +121,26 @@
         <div class="col-6 text-center">
           <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
         </div>
+
+        <!--チャット表示、非表示ボタン-->
         <div class="col-6 text-center">
-          <input type="button" class= "btn2" value="表示ボタン" style= "margin: 20px;">
-          <input type="button" class= "btn1" value="非表示ボタン" style= "margin: 20px;">
-          <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn btn-outline-primary" %>
+          <div class="row">
+            <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
+              チャット
+            </button>
+          </div>
+          <!--<div class="row">-->
+          <!--  <button type="button" id="btnDisplay" value="チャット" onclick="onVisible()" class="btn btn-outline-primary">-->
+          <!--    チャット-->
+          <!--  </button>-->
+          <!--</div>-->
+
+          <!--メッセージの未読がある際に変化-->
+          <% if @volunteer.message_checked_customer %>
+            <%= link_to "チャットルーム", room_path(@room), class: "go_chat btn" %>
+          <% else %>
+            <%= link_to "チャットルーム", room_path(@room), class: "go_chat btn  btn-outline-primary" %>
+          <% end %>
         </div>
       </div>
     </div>

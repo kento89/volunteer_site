@@ -21,11 +21,13 @@ class Recruiter::VolunteersController < ApplicationController
 
   def index
     @volunteer = Volunteer.all
+    
   end
 
   def show
     @volunteer = Volunteer.find(params[:id])
-    @room = @volunteer.room
+    @room = @volunteer.get_room
+    # @room.check_chats_notification(current_recruiter)
     # @room = Room.find(params[:id])
     # Messsage.where(room_id: @room.id)でメッセージを取得。
     # Message.newで@messageのインスタンスを作成してformに値を渡す。
