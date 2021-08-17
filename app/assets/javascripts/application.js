@@ -11,23 +11,24 @@
 // about supported directives.
 //
 //= require jquery3
+//= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require moment
 //= require moment/ja.js
 //= require tempusdominus-bootstrap-4.js
 
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
 
    $(document).on('turbolinks:load', function () {
     $('#limit').datetimepicker({
       format: 'YYYY-MM-DD'
     });
   });
-  
+
     let key = 0;
     function loadImage(obj) {
     for (i = 0; i < obj.files.length; i++) {
@@ -54,6 +55,7 @@
     }
 }
 
+// 写真スライド
 $(document).on('turbolinks:load', function(){
     $('#slider').slick({
         dots: true,
@@ -71,13 +73,35 @@ $(function(){
 });
 
 
-// チャット画面の表示非表示を切り替える
-// $(document).on('turbolinks:load', function() {
-//   $('.btn1').click(function(){
-//     $('.open_window').addClass('.off');
-//   });
-//   $('.btn2').click(function(){
-//     $('.open_window').removeClass('.off');
-//   });
-// });
+// チャット画面の表示非表示を切り替える btn1: 非表示 / btn2: 非表示
+$(document).on('turbolinks:load', function() {
+  $(document).on('click', '#btnInvisible', function(){
+    let chats = $('#chatRoom').attr('class');
+    console.log(chats);
+    if(chats=='open-window off'){
+      $('#chatRoom').removeClass('off');
+    }else{
+      $('#chatRoom').addClass('off');
+    }
+  });
+  // $('#btnInvisible').click(function(){
+    // $('.open_window').removeClass('off');
+  // });
+});
 
+
+
+  // function onInvisible()
+  // {
+  //   // style.visibilityの場合はhidden
+  //   // style.displayの場合はstyle.none
+  //   var r = document.getElementById('chatRoom');
+  //   r.style.visibility = "hidden";
+  // }
+  // function onVisible()
+  // {
+  //   // style.visibilityの場合はvisible
+  //   // style.displayの場合はstyle.block
+  //   var r = document.getElementById('chatRoom');
+  //   r.style.visibility = "visible";
+  // }
