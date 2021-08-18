@@ -1,11 +1,13 @@
 class SearchController < ApplicationController
+  
+  # 検索メソッド
   def search
-    @value = params["search"]["value"]
-    @dates = search_for(@value)
+    if params[:name].present?
+      @volunteer = Volunteer.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @volunteer = Volunteer.none
+    end
   end
   
-private
-  def search_for(value)
-    
-  end
+
 end
