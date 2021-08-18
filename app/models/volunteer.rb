@@ -23,7 +23,7 @@ class Volunteer < ApplicationRecord
     if room != nil
       return room
     end
-    return Room.create(volunteer_id:self.id) # 必要なパラメータ設定してあげる
+    return Room.create(volunteer_id:self.id)
   end
 
 end
