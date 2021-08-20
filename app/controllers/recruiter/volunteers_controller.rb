@@ -59,6 +59,7 @@ class Recruiter::VolunteersController < ApplicationController
     flash[:notice] = "削除しました"
     redirect_to recruiter_volunteers_path
   end
+  
 
   private
   def volunteer_params

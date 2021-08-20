@@ -1,0 +1,14 @@
+<%= render partial: 'layouts/header' %>
+<div class="container">
+  <h3>承認待ち一覧</h3>
+  <div class="row">
+    <% @applies.each do |app| %>
+      <div class="col-6">
+        &nbsp<%= app.customer.last_name %><br>
+            <%= link_to "承認", public_volunteer_volunteer_customers_path(app.volunteer, customer_id: app.customer.id, apply_id: app.id), method: :post, class: "btn btn-outline-primary mt-5 mb-5" %>
+            <%= link_to "却下", public_volunteer_apply_path(app.volunteer, app), method: :delete, class: "btn btn-outline-primary mt-5 mb-5" %>
+            <br>
+      </div>
+    <% end %>
+  </div>
+</div>

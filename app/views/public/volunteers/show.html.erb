@@ -77,7 +77,7 @@
       
       <!--チャット機能-->
       <div class="open-window off" id="chatRoom">
-      <h5 class="chat-title"><%= @volunteer.name %>のチャットルーム</h5>
+      <h5 class="chat-title text-center"><%= @volunteer.name %>のチャットルーム</h5>
           <div id="chats">
             <% if @messages.blank? %>
               <p>メッセージはありません</p>
@@ -120,12 +120,28 @@
   </div>
   <div class="row mb-5">
     <div class="col-8"></div>
-    <div class="col-4">
-          <div class="text-center">
-              <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
-                チャット
-              </button>
-          </div>
+    <div class="col-4 row text-center">
+      <!--チャット画面へ開く-->
+      <div class="col-6">
+          <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
+            チャット
+          </button>
+      </div>
+      <!--ボランティア申し込みを行う-->
+      <div class="col-6">
+        <!--ボランティア登録されている場合-->
+        <% if @volunteer.customer_volunteer_in?(current_customer) %>
+          <%#= link_to "ボランティアをキャンセルする", public_volunteer_volunteer_customer_path(@volunteer, @volunteer_customer), method: :delete, date: {confirm: "ボランティアをキャンセルしますか？"}, class: "btn btn-outline-primary" %>
+          <div class="btn btn-outline-primary">ボランティア決定</div>
+        <!--これから申し込む場合-->
+        <% elsif current_customer %>
+          <% if @apply %>
+            <%= link_to "申し込みを取り消す", public_volunteer_apply_path(@volunteer, @apply), method: :delete, date: {confirm: "このボランティアへ申し込みを取り消しますか？"}, class: "btn btn-outline-primary" %>
+          <% else %>
+            <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

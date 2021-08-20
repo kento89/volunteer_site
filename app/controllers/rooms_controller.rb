@@ -1,11 +1,6 @@
 class RoomsController < ApplicationController
   before_action :same_room_customer!, only: :show
 
-  # def index
-  #   my_rooms_ids = current_customer.customer_rooms.selct(:room_id)
-  #   @customer = UserRoom.includes(:messages, :customer).where(room_id: my_rooms_ids).where.not(customer_id: current_customer.id).reverse_order
-  # end
-
   def create
     volunteer_room = Room.find(params[:id])
     if volunteer_room.nil?

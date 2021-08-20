@@ -11,4 +11,5 @@ class Public::VolunteersController < ApplicationController
     @messages = Message.where(room_id: @room.id)
   end
   
+  
 end

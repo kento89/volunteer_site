@@ -19,14 +19,17 @@ Rails.application.routes.draw do
     get 'customers/unsustainable' => 'customers#unsustainable'
     patch 'customers/unsustainable' => 'customers#exit'
     resources :recruiters, only: [:show]
-    resources :volunteers, only: [:index, :show]
+    resources :volunteers, only: [:index, :show] do
+      resources :applies, only: %i[index create destroy]
+      resources :volunteer_customers, only: %i[index create destroy]
+      end
   end
   
   namespace :recruiter do
     resources :recruiters, only: [:show, :edit, :update]
     get 'recruiters/unsustainable' => 'customers#unsustainable'
     patch 'recruiters/unsustainable' => 'customers#exit'
-    resources :customers, only: [:show]
+    resources :customers, only: [:show, :index]
     resources :volunteers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
   
