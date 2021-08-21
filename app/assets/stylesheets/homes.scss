@@ -1,0 +1,70 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.row-nav{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    height: 200px;
+}
+
+.t-main{
+  height: 500px;
+  justify-content: center;
+}
+
+.top_visual{
+  width: 100%;
+  height: 1100px;
+  background-image: image-url('PF.top.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.bottom_visual{
+  width: auto;
+  height: 300px;
+  background-image: image-url('PF.footer.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7;
+}
+
+li{
+  list-style: none;
+}
+
+.top_visual h2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+  
+  h2{
+    text-shadow: 30px 30px 30px #ffffff ,
+    0px 0px 20px #f8f9fa,
+    0px 0px 40px #f8f9fa,
+    0px 0px 60px #f8f9fa,
+    0px 0px 100px #f8f9fa;
+}
+
+.nav-item{
+  border-right: 2px;
+  border-color: black;
+}
+.nav-item:hover{
+  background-color: gray;
+}
+
+.link_a{
+  font-size: 30px;
+}

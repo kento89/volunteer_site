@@ -1,0 +1,2 @@
+module Public::VolunteersHelper
+end

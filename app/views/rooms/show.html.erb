@@ -1,0 +1,74 @@
+<%= render partial: 'layouts/header' %>
+<div class="container">
+  <h1 class="text-center"><%= @volunteer.name %>のチャットルーム</h1>
+  <% if @messages.blank? %>
+    <p>メッセージはありません</p>
+    <% @messages.each do |message| %>
+      <% if message.customer != nil %>
+        <div class="row">
+          <div class="col-2 image">
+            <tr><%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <td><%= message.customer.last_name %></td>
+          </div>
+          <div class="col-5 chat-space chat-left">
+            <p class="message-left"><%= message.message %></p>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-5 chat-space chat-right">
+            <p class="message-right"><%= message.message %></p>
+          </div>
+          <div class="col-2 image">
+            <tr><%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <td><%= message.recruiter.last_name %></td>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="register-green-btn text-center">
+      <%= form_with model: @message, url: messages_path, local: true do |f| %>
+      <%= f.text_field :message, class: "form-control" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit "送信", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+  <% else %>
+    <% @messages.each do |message| %>
+      <% if message.customer != nil %>
+        <div class="row">
+          <div class="col-2 image">
+            <tr><%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <td><%= message.customer.last_name %></td>
+          </div>
+          <div class="col-5 chat-space chat-left">
+            <p class="message-left"><%= message.message %></p>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      <% else %>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-5 chat-space chat-right">
+            <p class="message-right"><%= message.message %></p>
+          </div>
+          <div class="col-2 image">
+            <tr><%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <td><%= message.recruiter.last_name %></td>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="register-green-btn text-center">
+      <%= form_with model: @message, url: messages_path, local: true do |f| %>
+      <%= f.text_field :message, class: "form-control" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit "送信", class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>
+<% end %>
+
+<!--<textarea class="form-control" id="Textarea" rows="3" placeholder="その他、質問などありましたら" required></textarea>-->

@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'font-awesome-sprockets';
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
+@import "bootstrap";
+
+.navbar{
+  display: flex;
+  flex-dirextion: row;
+}
+
+body{
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
+}
+
+.header-bg{
+  background-color: #CCFFFF;
+}
+
+.footer-bg{
+  background-color: #CCFFFF;
+  height: 80px;
+}
+
+.slick-next{
+  right: 10px;
+  z-index: 100;
+}
+
+.slick-prev{
+  left: 10px;
+  z-index: 100;
+}
+
+.frame{
+  display: inline-block;
+  position: relative;
+}
+
+.frame:after{
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transform: rotate(3deg);
+  background: #fff;
+  z-index: -1;
+}
+
+.border-index{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.link:hover{
+  background-color: #cce9ff;
+}
