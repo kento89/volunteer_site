@@ -1,0 +1,7 @@
+<% notifications = @notifications.where.not(recruiter_id: current_recruiter.id) %>
+    <% if notifications.exists? %>
+        <%= render 'notifications/notification', notification: @notifications %>
+    <% else %>
+        <p>通知はございません</p>
+    <% end %>
+<% end %>

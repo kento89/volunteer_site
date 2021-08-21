@@ -7,5 +7,5 @@ class Recruiter < ApplicationRecord
   attachment :image
   has_many :volunteers, dependent: :destroy
   has_many :messages, dependent: :destroy
-  # has_many :user, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 end

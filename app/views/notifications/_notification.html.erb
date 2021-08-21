@@ -1,0 +1,7 @@
+<%= if notification.checked == false %>
+  <div>
+    <%= @customer.name %>さんが
+      あなたにメッセージを送りました
+    <%= link_to '既読にする', notification_path(notification.id), method: :put %>
+  </div>
+<% end %>

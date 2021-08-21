@@ -18,12 +18,13 @@
             <li class="nav-item"><%= link_to "ボランティア一覧",recruiter_volunteers_path, class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "新規投稿",new_recruiter_volunteer_path, class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "申し込み者一覧",new_recruiter_volunteer_path, class: "btn btn-outline-primary mr-2" %></li>
+            <li class="nav-item"><%= link_to "通知一覧",notifications_path, class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete, class: "btn btn-outline-primary mr-2" %></li>
         <% else %>
-          <li class="nav-item mr-2"><%= link_to "top", root_path, class: "btn btn-outline-primary" %></li>
-          <li class="nav-item mr-2"><%= link_to "about", homes_about_path, class: "btn btn-outline-primary" %></li>
-          <li class="nav-item mr-2"><%= link_to "signup", new_customer_registration_path, class: "btn btn-outline-primary" %></li>
-          <li class="nav-item mr-2"><%= link_to "signin", new_customer_session_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "トップページ", root_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "ボランティア一覧", homes_about_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-primary" %></li>
         <% end %>
       </ul>
     </div>

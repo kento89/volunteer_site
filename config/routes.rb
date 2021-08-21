@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     passwords: 'recruiters/passwords',
     registrations: 'recruiters/registrations'
   }
-  
+
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
   get '/search' => 'search#search'
-  
+
   namespace :public do
     resource :customers, only: [:show, :edit, :update]
     get 'customers/unsustainable' => 'customers#unsustainable'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       resources :volunteer_customers, only: %i[index create destroy]
       end
   end
-  
+
   namespace :recruiter do
     resources :recruiters, only: [:show, :edit, :update]
     get 'recruiters/unsustainable' => 'customers#unsustainable'
@@ -32,9 +32,10 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :index]
     resources :volunteers, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
-  
-  
+
+
   resources :image, only: [:create, :update, :destroy]
   resources :rooms, only: [:create, :show]
   resource :messages, only: [:create]
+  resources :notifications, only: [:index, :update]
 end
