@@ -1,7 +1,11 @@
-<%= if notification.checked == false %>
-  <div>
-    <%= @customer.name %>さんが
-      あなたにメッセージを送りました
-    <%= link_to '既読にする', notification_path(notification.id), method: :put %>
-  </div>
-<% end %>
+<div>
+  <table>
+    <% notification.each do |n| %>
+      <tr>
+        <td><%= n.message.message %></td>
+        <td><%= n.message.customer.last_name %></td>
+        <td><%= link_to '既読にする', notification_path(n.id), method: :patch %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
