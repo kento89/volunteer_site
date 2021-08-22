@@ -3,14 +3,14 @@
     <div class="container">
       <%= link_to image_tag("logomain.png", width: 67), root_path, class: "rounded-circle" %>
       <% if customer_signed_in? %>
-        <div class="ml-5">ようこそ<%= current_customer.last_name %>様</div>
+        <div class="ml-5"><%= current_customer.last_name %>様</div>
       <% elsif recruiter_signed_in? %>
-        <div class="ml-5">ようこそ<%= current_recruiter.last_name %>様</div>
+        <div class="ml-5"><%= current_recruiter.last_name %>様</div>
       <% end %>
       <ul class="navbar-nav flex-row navbar">
         <% if customer_signed_in? %>
             <li class="nav-item"><%= link_to "マイページ", public_customers_path(:id), class: "btn btn-outline-primary mr-2" %></li>
-            <li class="nav-item"><%= link_to "ボランティア一覧", public_volunteers_path, class: "btn btn-outline-primary mr-2" %></li>
+            <li class="nav-item"><%= link_to "ボランティア一覧", recruiter_volunteers_path, class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "ボランティアステータス", public_customers_path(:id), class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-primary mr-2" %></li>
         <% elsif recruiter_signed_in? %>
@@ -21,7 +21,7 @@
             <li class="nav-item"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete, class: "btn btn-outline-primary mr-2" %></li>
         <% else %>
           <li class="nav-item mr-2"><%= link_to "トップページ", root_path, class: "btn btn-outline-primary" %></li>
-          <li class="nav-item mr-2"><%= link_to "ボランティア一覧", homes_about_path, class: "btn btn-outline-primary" %></li>
+          <li class="nav-item mr-2"><%= link_to "ボランティア一覧", recruiter_volunteers_path, class: "btn btn-outline-primary" %></li>
           <li class="nav-item mr-2"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-primary" %></li>
           <li class="nav-item mr-2"><%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-primary" %></li>
         <% end %>

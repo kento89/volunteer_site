@@ -4,7 +4,7 @@
     <div class="text-right">
       <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
     </div>
-  <% end %> 
+  <% end %>
   <div class="row">
     <div class="col-8">
       <div class="row">
@@ -82,7 +82,7 @@
 
       <!--チャット小ルーム-->
         <div class="open-window off" id="chatRoom">
-          <%= render partial: 'chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room} %>
+          <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room} %>
         </div>
         <!--ここまでチャット-->
 
@@ -101,7 +101,7 @@
       <% if recruiter_signed_in?  %>
         <div class="col-6 text-center">
          <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
-         
+
       <% elsif customer_signed_in? %>
         <div class="col-6">
           <!--ボランティア登録されている場合-->
@@ -118,13 +118,13 @@
           <% end %>
         </div>
       <% end %>
-      
+
           <!--メッセージの未読がある際に変化-->
-          <% if @volunteer.message_checked_customer %>
-            <%= link_to "チャットルーム", room_path(@room), class: "go_chat btn" %>
-          <% else %>
-            <%= link_to "チャットルーム", room_path(@room), class: "go_chat btn  btn-outline-primary" %>
-          <% end %>
+          <%# if @volunteer.message_checked_customer %>
+            <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn" %>
+          <%# else %>
+            <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn  btn-outline-primary" %>
+          <%# end %>
         </div>
       </div>
     </div>
