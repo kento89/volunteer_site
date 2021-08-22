@@ -12,24 +12,23 @@
     <ul class="row-nav">
         <% if customer_signed_in? %>
           <div class="navbar row text-center">
-            <li class="nav-item col-3 border-right lead"><%= link_to "マイページ", public_customers_path(:id) %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティア一覧", public_volunteers_path %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティアステータス", public_customers_path(:id) %></li>
-            <li class="nav-item col-3 lead"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "マイページ", public_customers_path(:id) %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", public_volunteers_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティアステータス", public_customers_path(:id) %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
           </div>
         <% elsif recruiter_signed_in? %>
           <div class="navbar row text-center">
-            <li class="nav-item col-3 border-right lead"><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
-            <li class="nav-item col-3 lead"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
           </div>
         <% else %>
           <div class="navbar row text-center">
-            <li class="nav-item col-3 border-right lead"><%= link_to "top", root_path %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "about", homes_about_path %></li>
-            <li class="nav-item col-3 border-right lead"><%= link_to "signup", new_customer_registration_path %></li>
-            <li class="nav-item col-3 lead"><%= link_to "signin", new_customer_session_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", homes_about_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログイン", new_customer_session_path %></li>
           </div>
         <% end %>
       </ul>

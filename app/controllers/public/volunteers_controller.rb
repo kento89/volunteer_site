@@ -6,7 +6,10 @@ class Public::VolunteersController < ApplicationController
   
   def show
     @volunteer = Volunteer.find(params[:id])
-    @room = Room.find_by(volunteer_id: params[:id])
+    @room = @volunteer.get_room
+    @message = Message.new
+    @messages = Message.where(room_id: @room.id)
   end
+  
   
 end

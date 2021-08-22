@@ -1,5 +1,8 @@
 <%= render partial: 'layouts/header' %>
 <div class="container mt-3 mb-3">
+  
+    <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
+    
   <div class="row">
     <div class="col-8">
       <div class="row">
@@ -69,7 +72,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="frame mt-5" id="slider">
+      <div class="frame-slider" id="slider">
         <% @volunteer.images.each do |image| %>
           <%= attachment_image_tag image, :image, :fill, 400, 400, format: "jpg" %>
         <% end %>
@@ -77,33 +80,34 @@
 
       <!--チャット小ルーム-->
         <div class="open-window off" id="chatRoom">
-          <h5 class="chat-title"><%= @volunteer.name %>のチャットルーム</h5>
-              <div id="chats">
-                <% if @messages.blank? %>
-                  <p>メッセージはありません</p>
-                <% else%>
-                  <% @messages.each do |message| %>
-                      <% if message.recruiter != nil %>
-                        <div class="mycomment">
-                          <p><%= message.message %></p>
+        <h5 class="chat-title"><%= @volunteer.name %>のチャットルーム</h5>
+            <div id="chats">
+              <% if @messages.blank? %>
+                <p>メッセージはありません</p>
+              <% else%>
+                <% @messages.each do |message| %>
+                    <% if message.recruiter != nil %>
+                      <div class="mycomment">
+                        <p><%= message.message %></p>
+                      </div>
+                      <div><%= message.recruiter.last_name %></div>
+                    <% else %>
+                      <div class="fukidasi">
+                        <div class="faceicon">
+                          <%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
                         </div>
-                        <div><%= message.recruiter.last_name %></div>
-                      <% else %>
-                        <div class="fukidasi">
-                          <div class="faceicon">
-                            <%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                        <div class="chatting">
+                          <div class="says">
+                            <p><%= message.message %></p>
                           </div>
-                          <div class="chatting">
-                            <div class="says">
-                              <p><%= message.message %></p>
-                            </div>
-                            <div class="name"><%= message.customer.last_name %></div>
-                          </div>
+                          <div class="name"><%= message.customer.last_name %></div>
                         </div>
-                      <% end %>
-                  <% end %>
+                      </div>
+                    <% end %>
                 <% end %>
-              </div>
+              <% end %>
+            </div>
+            <div class="chat-input">
               <div class="chat-comment">
                 <%= form_with model: @message, url: messages_path, class: "send-form", local: true do |f| %>
                   <%= f.text_field :message, class:"address-new-form" %>
@@ -111,6 +115,7 @@
                   <%= f.submit "送信", class:"register-green-btn" %>
                 <% end %>
               </div>
+            </div>
         </div>
         <!--ここまでチャット-->
 
@@ -131,11 +136,6 @@
               チャット
             </button>
           </div>
-          <!--<div class="row">-->
-          <!--  <button type="button" id="btnDisplay" value="チャット" onclick="onVisible()" class="btn btn-outline-primary">-->
-          <!--    チャット-->
-          <!--  </button>-->
-          <!--</div>-->
 
           <!--メッセージの未読がある際に変化-->
           <% if @volunteer.message_checked_customer %>

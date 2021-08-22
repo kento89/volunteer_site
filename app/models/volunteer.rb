@@ -1,8 +1,10 @@
 class Volunteer < ApplicationRecord
   belongs_to :recruiter
   has_many :images, dependent: :destroy
-  has_many :customers, dependent: :destroy
   has_one :room, dependent: :destroy
+  has_many :volunteer_customers, dependent: :destroy
+  has_many :applies, dependent: :destroy
+  has_many :customers, dependent: :destroy, through: :volunteer_customers
 
   attr_accessor :images_attributes
 
@@ -19,11 +21,18 @@ class Volunteer < ApplicationRecord
     Message.where(checked: false).any?
   end
   
+  # チャットルームがあれば@volunteerに紐づくRoomを作る
   def get_room
     if room != nil
       return room
     end
-    return Room.create(volunteer_id:self.id) # 必要なパラメータ設定してあげる
+    return Room.create(volunteer_id:self.id)
+  end
+  
+  
+  # カスタマーがカスタマーボランティアに所属していればtrueを返す
+  def customer_volunteer_in?(customer)
+    customers.include?(customer)
   end
 
 end

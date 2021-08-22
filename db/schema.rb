@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_15_062554) do
+ActiveRecord::Schema.define(version: 2021_08_20_105207) do
+
+  create_table "applies", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "volunteer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_applies_on_customer_id"
+    t.index ["volunteer_id"], name: "index_applies_on_volunteer_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,7 +60,18 @@ ActiveRecord::Schema.define(version: 2021_08_15_062554) do
     t.integer "customer_id"
     t.integer "recruiter_id"
     t.integer "room_id"
-    t.boolean "checked", default: false # ここじゃなくてnotifyテーブルを作りましょう。これだと一人しか通知できないです。
+    t.boolean "checked", default: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "visited_id"
+    t.integer "room_id"
+    t.integer "message_id"
+    t.string "action"
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recruiters", force: :cascade do |t|
@@ -91,6 +111,15 @@ ActiveRecord::Schema.define(version: 2021_08_15_062554) do
     t.index ["customer_id"], name: "index_user_rooms_on_customer_id"
     t.index ["recruiter_id"], name: "index_user_rooms_on_recruiter_id"
     t.index ["room_id"], name: "index_user_rooms_on_room_id"
+  end
+
+  create_table "volunteer_customers", force: :cascade do |t|
+    t.integer "volunteer_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_volunteer_customers_on_customer_id"
+    t.index ["volunteer_id"], name: "index_volunteer_customers_on_volunteer_id"
   end
 
   create_table "volunteer_images", force: :cascade do |t|
