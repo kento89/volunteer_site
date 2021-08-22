@@ -43,7 +43,7 @@
                 <p>実施日時</p>
               </div>
               <div class="col-4 form-group">
-                <%= f.text_field :time, class: "form-control datetimepicker-input", id: "time", data: {toggle: "datetimepicker", target: "#time"} %>
+                <%= f.datetime_field :time, class: "form-control" %>
               </div>
             </div>
             <div class="row">
@@ -91,7 +91,7 @@
                 <p>募集締め切り日</p>
               </div>
               <div class="col-4 form-group">
-                <%= f.text_field :limit, class: "form-control datetimepicker-input", id: "limit", data: {toggle: "datetimepicker", target: "#limit"} %>
+                <%= f.date_field :limit, class: "form-control" %>
               </div>
             </div>
             <div class="row">
@@ -109,14 +109,12 @@
               <%= f.fields_for :images do |i| %>
                 <%= i.attachment_field :image, multiple: true, name: "images_attributes[0][image][]", type: "file", accept: "image/*", multiple: " multiple", onchange: "loadImage(this);" %>
               <% end %>
-              <!--<form>-->
-              <!--    <input type="file" accept="image/*" multiple=" multiple" onchange="loadImage(this);">-->
-              <!--</form>-->
             <div id="imgPreviewField" class="mt-3 mr-2 d-flex"></div>
           </div>
         </div>
-
-      <%= f.submit '投稿' %>
+      <div class="text-center">
+        <%= f.submit '投稿', class: "btn btn-outline-primary mb-3" %>
+      </div>
     <% end %>
   </div>
 </main>
