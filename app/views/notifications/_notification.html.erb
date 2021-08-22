@@ -1,11 +1,23 @@
-<div>
-  <table>
-    <% notification.each do |n| %>
-      <tr>
-        <td><%= n.message.message %></td>
-        <td><%= n.message.customer.last_name %></td>
-        <td><%= link_to '既読にする', notification_path(n.id), method: :patch %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="row text-center border-bottom mt-5 mb-5">
+  <h5 class="col-3">ボランティア名</h5>
+  <h5 class="col-2">チャット相手</h5>
+  <h5 class="col-5">メッセージ内容</h5>
+  <h5 class="col-2"></h5>
 </div>
+
+<% notification.each do |n| %>
+  <div class="row text-center mb-5">
+    <div class="col-3">
+      <%= n.message.room.volunteer.name %>
+    </div>
+    <div class="col-2">
+      <%= n.message.customer.last_name %>
+    </div>
+    <div class="col-5">
+      <%= n.message.message %>
+    </div>
+    <div class="col-2">
+      <%= link_to '既読にする', notification_path(n.id), method: :patch, class: "btn btn-outline-primary" %>
+    </div>
+  </div>
+<% end %>
