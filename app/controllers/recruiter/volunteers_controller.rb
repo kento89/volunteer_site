@@ -1,4 +1,5 @@
 class Recruiter::VolunteersController < ApplicationController
+  before_action :move_to_signed_in, except: [:index]
 
   def new
     @volunteer=Volunteer.new
@@ -20,19 +21,14 @@ class Recruiter::VolunteersController < ApplicationController
   end
 
   def index
-    @volunteer = Volunteer.all
-    
+    @volunteer = Volunteer.all.page(params[:page]).reverse_order.per(6)
   end
 
   def show
     @volunteer = Volunteer.find(params[:id])
     @room = @volunteer.get_room
-    # @room.check_chats_notification(current_recruiter)
-    # @room = Room.find(params[:id])
-    # Messsage.where(room_id: @room.id)でメッセージを取得。
-    # Message.newで@messageのインスタンスを作成してformに値を渡す。
-    @message = Message.new
-    @messages = Message.where(room_id: @room.id)
+    @message = Message.new # Message.newで@messageのインスタンスを作成してformに値を渡す。
+    @messages = Message.where(room_id: @room.id) # Messsage.where(room_id: @room.id)でメッセージを取得。
   end
 
   def edit
@@ -79,5 +75,11 @@ class Recruiter::VolunteersController < ApplicationController
       :recruiter_id
       )
   end
-
+  
+  def move_to_signed_in
+    unless customer_signed_in? || recruiter_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  new_customer_registration_path
+    end
+  end
 end

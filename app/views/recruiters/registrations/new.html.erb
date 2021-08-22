@@ -1,87 +1,87 @@
-<div class="container">
-  <h2>Sign up</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "recruiters/shared/error_messages", resource: resource %>
-        
-        <div class="field row">
-            <p class="col-4">名前</p>
-            <div class="col-8 row">
-              <div class="col-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
-              <div class="col-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <p class="col-4">フリガナ</p>
-            <div class="col-8 row">
-              <div class="col-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></div>
-              <div class="col-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></div>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <p class="col-4">郵便番号</p>
-            <div class="col-8">
-              <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg mt-2" %>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <p class="col-4">住所</p>
-            <div class="col-8">
-              <%= f.text_field :address, autofocus: true, class: "form-control input-lg mt-2" %>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <p class="col-4">電話番号</p>
-            <div class="col-8">
-              <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg mt-2" %>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <p class="col-4">メールアドレス</p>
-            <div class="col-8">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg mt-2" %>
-            </div>
-          </div>
-          
-          <div class="field row">
-            <p class="col-4">プロフィール画像</p>
-            <div class="col-8 mt-2">
-              <%= f.attachment_field :image %>
-            </div>
-          </div>
-          
-          <div class="field row">
-            <p class="col-4">パスワード</p>
-            <div class="col-8">
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> 文字以上)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class: "form-control input-lg" %>
-            </div>
-          </div>
-        
-          <div class="field row">
-            <div class="col-4">パスワード確認</div>
-            <div class="col-8">
-              <%= f.label :password_confirmation, 'パスワード確認' %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-lg" %>
-            </div>
-          </div>
-
-          <div class="actions text-center mt-4 mb-3">
-            <%= f.submit "Sign up" %>
-          </div>
-          
-  <% end %>
-  <div class="text-center mb-2">
-    <%= render "recruiters/shared/links" %>
+<div class="back-image-signup">  
+  <%= render partial: 'layouts/header' %>
+    <div class="container">
+      <h2 class="text-center mt-5 mb-5">Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "recruiters/shared/error_messages", resource: resource %>
+            
+            <div class="field row">
+                <p class="col-4">名前</p>
+                <div class="col-8 row">
+                  <div class="col-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
+                  <div class="col-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <p class="col-4">フリガナ</p>
+                <div class="col-8 row">
+                  <div class="col-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></div>
+                  <div class="col-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></div>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <p class="col-4">郵便番号</p>
+                <div class="col-8">
+                  <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg mt-2" %>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <p class="col-4">住所</p>
+                <div class="col-8">
+                  <%= f.text_field :address, autofocus: true, class: "form-control input-lg mt-2" %>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <p class="col-4">電話番号</p>
+                <div class="col-8">
+                  <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg mt-2" %>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <p class="col-4">メールアドレス</p>
+                <div class="col-8">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg mt-2" %>
+                </div>
+              </div>
+              
+              <div class="field row">
+                <p class="col-4">プロフィール画像</p>
+                <div class="col-8 mt-2">
+                  <%= f.attachment_field :image %>
+                </div>
+              </div>
+              
+              <div class="field row">
+                <p class="col-4">パスワード</p>
+                <div class="col-8">
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> 文字以上)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control input-lg" %>
+                </div>
+              </div>
+            
+              <div class="field row">
+                <div class="col-4">パスワード確認</div>
+                <div class="col-8">
+                  <%= f.label :password_confirmation, 'パスワード確認' %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-lg" %>
+                </div>
+              </div>
+    
+              <div class="actions text-center mt-4 mb-3">
+                <%= f.submit "募集人登録する", class: "btn btn-outline-primary" %>
+              </div>
+              
+      <% end %>
+    <p class="text-center">既に登録済みの方</p>
+    <div class="text-center">
+      <%= render "recruiters/shared/links" %>
+    </div>
   </div>
 </div>
-
-
-
-  

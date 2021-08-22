@@ -3,14 +3,14 @@ class MessagesController < ApplicationController
   def create
 
     @message = Message.new(message_params)
-
+    
     if current_customer != nil
       @message.customer = current_customer
     elsif current_recruiter != nil
       @message.recruiter = current_recruiter
     end
-
     @room=@message.room
+    @volunteer=@room.volunteer
 
     if @message.save
       # 新しい通知
@@ -20,7 +20,8 @@ class MessagesController < ApplicationController
       end
 
     end
-    redirect_to request.referer
+    @messages = @room.messages
+    render "recruiter/volunteers/create"
 
   end
 

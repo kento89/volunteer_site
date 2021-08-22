@@ -65,7 +65,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 
-$(function(){
+$(document).on('tubolinks:load',function(){
   $('#go_chat').on('click', function(){
     window.open('room_path(@room)','subwin','width=300,height=300');
     return false;
@@ -73,7 +73,7 @@ $(function(){
 });
 
 
-// チャット画面の表示非表示を切り替える btn1: 非表示 / btn2: 非表示
+// チャット画面の表示非表示を切り替える
 $(document).on('turbolinks:load', function() {
   $(document).on('click', '#btnInvisible', function(){
     let chats = $('#chatRoom').attr('class');
@@ -84,24 +84,6 @@ $(document).on('turbolinks:load', function() {
       $('#chatRoom').addClass('off');
     }
   });
-  // $('#btnInvisible').click(function(){
-    // $('.open_window').removeClass('off');
-  // });
+  
 });
 
-
-
-  // function onInvisible()
-  // {
-  //   // style.visibilityの場合はhidden
-  //   // style.displayの場合はstyle.none
-  //   var r = document.getElementById('chatRoom');
-  //   r.style.visibility = "hidden";
-  // }
-  // function onVisible()
-  // {
-  //   // style.visibilityの場合はvisible
-  //   // style.displayの場合はstyle.block
-  //   var r = document.getElementById('chatRoom');
-  //   r.style.visibility = "visible";
-  // }
