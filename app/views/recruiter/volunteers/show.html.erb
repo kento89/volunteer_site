@@ -13,15 +13,15 @@
         </div>
         <div class="col-2 mt-2">
           <p class="btn btn-light">実施日</p>
-          <p><%= @volunteer.time %></p>
+          <p><%= l @volunteer.time %></p>
         </div>
         <div class="col-2">
           <p class="btn btn-light mt-2">募集人数</p>
-          <p><%= @volunteer.people %></p>
+          <p class="text-center"><%= @volunteer.people %>名</p>
         </div>
         <div class="col-3 mt-2">
           <p class="btn btn-light">募集期限</p>
-          <p><%= @volunteer.limit %></p>
+          <p><%= @volunteer.limit %> まで</p>
         </div>
       </div>
       <div class="row mt-4">
