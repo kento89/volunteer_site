@@ -9,8 +9,8 @@ class MessagesController < ApplicationController
     elsif current_recruiter != nil
       @message.recruiter = current_recruiter
     end
-
     @room=@message.room
+    @volunteer=@room.volunteer_id
 
     if @message.save
       # 新しい通知
@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
       end
 
     end
-    redirect_to request.referer
+    redirect_to recruiter_volunteer_path(@volunteer)
 
   end
 
