@@ -27,8 +27,8 @@
     <% end %>
   </div>
   <div class="chat-input">
-    <div class="chat-comment" id="chatroom">
-      <%= form_with model: message, url: messages_path, class: "send-form", remote: true do |f| %>
+    <div class="chat-comment">
+      <%= form_with model: Message.new, url: messages_path, class: "send-form", remote: true do |f| %>
         <%= f.text_field :message, class:"address-new-form" %>
         <%= f.hidden_field :room_id, value: room.id %>
         <%= f.submit "送信", class:"register-green-btn" %>
@@ -38,7 +38,7 @@
 
 <% elsif customer_signed_in?  %>
     <div id="chats">
-      <% if @messages.blank? %>
+      <% if messages.blank? %>
         <p>メッセージはありません</p>
       <% else%>
         <% @messages.each do |message| %>
@@ -64,8 +64,8 @@
       <% end %>
       </div>
       <div class="chat-input">
-        <div class="chat-comment" id="chatroom">
-          <%= form_with model: @message, url: messages_path, class: "send-form", remote: true do |f| %>
+        <div class="chat-comment">
+          <%= form_with model: Message.new, url: messages_path, class: "send-form", remote: true do |f| %>
             <%= f.text_field :message, class:"address-new-form" %>
             <%= f.hidden_field :room_id, value: @room.id %>
             <%= f.submit "送信", class:"register-green-btn" %>

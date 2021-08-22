@@ -21,8 +21,7 @@ class Recruiter::VolunteersController < ApplicationController
   end
 
   def index
-    @volunteer = Volunteer.all
-    
+    @volunteer = Volunteer.all.page(params[:page]).reverse_order.per(6)
   end
 
   def show

@@ -73,7 +73,7 @@ $(document).on('tubolinks:load',function(){
 });
 
 
-// チャット画面の表示非表示を切り替える btn1: 非表示 / btn2: 非表示
+// チャット画面の表示非表示を切り替える
 $(document).on('turbolinks:load', function() {
   $(document).on('click', '#btnInvisible', function(){
     let chats = $('#chatRoom').attr('class');

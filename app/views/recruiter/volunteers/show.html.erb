@@ -118,15 +118,9 @@
           <% end %>
         </div>
       <% end %>
-
-          <!--メッセージの未読がある際に変化-->
-          <%# if @volunteer.message_checked_customer %>
-            <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn" %>
-          <%# else %>
-            <%#= link_to "チャットルーム", room_path(@room), class: "go_chat btn  btn-outline-primary" %>
-          <%# end %>
         </div>
       </div>
     </div>
   </div>
+  <%= render "simple_calendar/month" %>
 </div>
