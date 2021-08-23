@@ -13,7 +13,7 @@
           <% else %>
             <div class="fukidasi">
               <div class="faceicon">
-                <%= attachment_image_tag customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                <%= attachment_image_tag message.customer, :image, size: 20*20, fallback: "logo.png" %>
               </div>
               <div class="chatting">
                 <div class="says">
@@ -50,7 +50,7 @@
             <% else %>
               <div class="fukidasi">
                 <div class="faceicon">
-                  <%= attachment_image_tag recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                  <%= attachment_image_tag message.recruiter, :image, size: 20*20, fallback: "logo.png" %>
                 </div>
                 <div class="chatting">
                   <div class="says">

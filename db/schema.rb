@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_105207) do
+ActiveRecord::Schema.define(version: 2021_08_23_101115) do
 
   create_table "applies", force: :cascade do |t|
     t.integer "customer_id"
@@ -145,11 +145,11 @@ ActiveRecord::Schema.define(version: 2021_08_20_105207) do
     t.date "limit", null: false
     t.integer "genre", default: 0, null: false
     t.boolean "recruiter_status", default: true, null: false
-    t.boolean "volunteer_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "recruiter_id"
     t.integer "room_id"
+    t.boolean "volunteer_status", default: true
   end
 
 end
