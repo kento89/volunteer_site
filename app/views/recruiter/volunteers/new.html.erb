@@ -1,7 +1,7 @@
 <%= render partial: 'layouts/header' %>
 <main>
   <div class="container">
-    <h2>ボランティア登録</h2>
+    <h2 class="text-center mt-3 mb-3">ボランティア登録</h2>
     <%= form_with model: @volunteer, url: {controller: 'volunteers', action: 'create'}, local:true do |f| %>
       <div class="row">
         <div class="col-8">
