@@ -17,6 +17,7 @@
 @import "font-awesome";
 @import "tempusdominus-bootstrap-4.css";
 @import "bootstrap";
+@import "fullcalendar.min";
 
 .navbar{
   display: flex;
@@ -96,10 +97,14 @@ body{
 }
 
 .volunteer-bg{
-  background-image: image-url('bg.jpg');
-  background-size:cover;
-  background-position:center;
+  // background-image: image-url('bg.jpg');
+  // background-size:cover;
+  // background-position:center;
   width: 100%;
   height: 3100px;
 }
-
+// カレンダーのサイズ
+#calender{
+  height: 1000px;
+  width: 1000px;
+}
