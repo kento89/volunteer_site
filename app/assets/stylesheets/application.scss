@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 @import "tempusdominus-bootstrap-4.css";
 @import "bootstrap";
-@import "fullcalendar.min";
 
 .navbar{
   display: flex;

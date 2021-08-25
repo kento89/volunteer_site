@@ -1,5 +1,4 @@
 <%= render partial: 'layouts/header' %>
-<main>
   <div class="container mt-3 mb-5">
     <h2 class="mb-5">プロフィール編集</h2>
       <%= form_with model: @recruiter, url: '/recruiter/recruiters/:id', method: :patch, local: true do |f| %>
@@ -54,4 +53,4 @@
     </div>
       <% end %>
   </div>
-</main>
+<%= render partial: 'layouts/footer' %>

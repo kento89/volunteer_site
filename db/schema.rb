@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_101115) do
+ActiveRecord::Schema.define(version: 2021_08_24_110606) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "applies", force: :cascade do |t|
     t.integer "customer_id"
@@ -36,21 +57,17 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
     t.integer "phone_number", null: false
     t.boolean "experience", default: false, null: false
     t.text "comment"
-    t.string "image_id"
     t.boolean "volunteer_status", default: false, null: false
     t.boolean "customer_status", default: false, null: false
+    t.integer "volunteer_id"
+    t.integer "apply_id"
+    t.integer "volunteer_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "volunteer_id"
+    t.index ["apply_id"], name: "index_customers_on_apply_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.string "image_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "volunteer_id"
+    t.index ["volunteer_customer_id"], name: "index_customers_on_volunteer_customer_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -87,7 +104,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
     t.integer "postal_number", null: false
     t.string "address", null: false
     t.integer "phone_number", null: false
-    t.string "image_id", null: false
     t.boolean "recruiter_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,9 +113,11 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
 
   create_table "rooms", force: :cascade do |t|
     t.datetime "customer_time"
+    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "volunteer_id"
+    t.index ["message_id"], name: "index_rooms_on_message_id"
   end
 
   create_table "user_rooms", force: :cascade do |t|
@@ -108,6 +126,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
     t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id", "room_id", "recruiter_id"], name: "index_user_rooms_on_customer_id_and_room_id_and_recruiter_id", unique: true
     t.index ["customer_id"], name: "index_user_rooms_on_customer_id"
     t.index ["recruiter_id"], name: "index_user_rooms_on_recruiter_id"
     t.index ["room_id"], name: "index_user_rooms_on_room_id"
@@ -122,15 +141,6 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
     t.index ["volunteer_id"], name: "index_volunteer_customers_on_volunteer_id"
   end
 
-  create_table "volunteer_images", force: :cascade do |t|
-    t.integer "volunteer_id"
-    t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["image_id"], name: "index_volunteer_images_on_image_id"
-    t.index ["volunteer_id"], name: "index_volunteer_images_on_volunteer_id"
-  end
-
   create_table "volunteers", force: :cascade do |t|
     t.string "name", null: false
     t.text "a_litle_explanation", null: false
@@ -142,14 +152,19 @@ ActiveRecord::Schema.define(version: 2021_08_23_101115) do
     t.string "necessary_item", null: false
     t.text "important_point", null: false
     t.text "comment", null: false
-    t.date "limit", null: false
+    t.datetime "limit", null: false
     t.integer "genre", default: 0, null: false
     t.boolean "recruiter_status", default: true, null: false
+    t.boolean "volunteer_status", default: true, null: false
+    t.integer "recruiter_id"
+    t.integer "apply_id"
+    t.integer "volunteer_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "recruiter_id"
     t.integer "room_id"
-    t.boolean "volunteer_status", default: true
+    t.index ["apply_id"], name: "index_volunteers_on_apply_id"
+    t.index ["recruiter_id"], name: "index_volunteers_on_recruiter_id"
+    t.index ["volunteer_customer_id"], name: "index_volunteers_on_volunteer_customer_id"
   end
 
 end

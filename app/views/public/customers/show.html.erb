@@ -1,10 +1,9 @@
 <%= render partial: 'layouts/header' %>
-<main>
   <div class="container mt-3">
   <h2 class="text-center">マイページ</h2>
     <div class="row mt-5 mb-5">
       <div class="col-3">
-        <%= attachment_image_tag @customer, :image, size: 15*15, fallback: "man2.jpg", class: "img-fit rounded-circle" %>
+        <%#= image_tag @customer.image, :size => '30x20', format: "jpg" %>
         <div class="my_comment mt-3">
           <p><%= @customer.comment %></p>
         </div>
@@ -84,4 +83,4 @@
       <%= link_to "編集する", edit_public_customers_path, class: "btn btn-outline-primary mb-5" %>
     </div>
   </div>
-</main>
+<%= render partial: 'layouts/footer' %>

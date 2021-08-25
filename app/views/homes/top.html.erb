@@ -26,9 +26,10 @@
           </div>
         <% else %>
           <div class="navbar row text-center">
-            <li class="nav-item col-4 border-right link_a"><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
-            <li class="nav-item col-4 border-right link_a"><%= link_to "新規登録", new_customer_registration_path %></li>
-            <li class="nav-item col-4 link_a"><%= link_to "ログイン", new_customer_session_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア募集", homes_about_path %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログイン", new_customer_session_path %></li>
           </div>
         <% end %>
       </ul>
@@ -45,15 +46,5 @@
           そこにはまだ出会ったことのない何かがあるかもしれません
         </h2>
     </div>
-    <h3 class="recruiter-in text-center">ボランティアの募集をする方</h3>
-      <div class="row">
-        <div class="col-6 text-right">
-          <%= link_to "募集人登録済み", new_recruiter_session_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-        </div>
-        <div class="col-6 text-left">
-          <%= link_to "募集人登録する", new_recruiter_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-        </div>
-      </div>
-
     <div class="bottom_visual"></div>
 </main>

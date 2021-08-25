@@ -1,10 +1,9 @@
 <%= render partial: 'layouts/header' %>
-<main>
   <div class="container mt-3">
   <h2 class="text-center">マイページ</h2>
     <div class="row mt-5 mb-5">
       <div class="col-3">
-        <%= attachment_image_tag @recruiter, :image, size: 15*15, fallback: "logo.png", class: "img-fit rounded-circle" %>
+        <%#= image_tag image, :size => '15x15', format: "jpg" %>
        </div>
       <div class="col-6">
         <div class="row">
@@ -73,4 +72,4 @@
       <%= link_to "編集する", edit_recruiter_recruiter_path, class: "btn btn-outline-primary" %>
     </div>
   </div>
-</main>
+<%= render partial: 'layouts/footer' %>

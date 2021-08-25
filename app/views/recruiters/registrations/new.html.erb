@@ -52,7 +52,7 @@
               <div class="field row">
                 <p class="col-4">プロフィール画像</p>
                 <div class="col-8 mt-2">
-                  <%= f.attachment_field :image %>
+                  <%= f.file_field :image %>
                 </div>
               </div>
               
@@ -85,3 +85,4 @@
     </div>
   </div>
 </div>
+<%= render partial: 'layouts/footer' %>
