@@ -19,7 +19,7 @@ class Public::AppliesController < ApplicationController
   private
 
     def apply_params
-      params.permit(:volunteer_id)
+      params.permit(:volunteer_id, images: [])
     end
 
 end
