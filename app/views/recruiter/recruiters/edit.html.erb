@@ -4,7 +4,7 @@
       <%= form_with model: @recruiter, url: '/recruiter/recruiters/:id', method: :patch, local: true do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= image_tag @recruiter.image, :size => '15x15', format: "jpg" %>
+        <%= image_tag @recruiter.image, :size => '250x250', format: "jpg", class: "img-fit rounded-circle" %>
         <%#= attachment_image_tag @recruiter, :image, size: 18*18, fallback: "", class: "img-fit rounded-circle mb-3" %>
         <div class="field">
           <p>アイコンを編集する</p>

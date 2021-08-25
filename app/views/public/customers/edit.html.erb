@@ -5,10 +5,10 @@
       <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= attachment_image_tag @customer, :image, size: 18*18, fallback: "", class: "img-fit rounded-circle mb-3" %>
+        <%= image_tag @customer.image, :size => '250x250', format: "jpg", class: "img-fit rounded-circle" %>
         <div class="field">
           <p>アイコンを編集する</p>
-          <%= f.attachment_field :image %>
+          <%= f.file_field :image %>
         </div>
         <div class="mt-4"><%= f.text_field :comment, autofocus: true, class: "form-control input-lg" %></div>
       </div>

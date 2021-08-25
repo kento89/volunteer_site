@@ -7,7 +7,6 @@
     <div class="search text-right">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <%= f.text_field :name %>
-        <%#= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
         <%= f.submit :'検索' %>
       <% end %>
     </div>
@@ -24,8 +23,8 @@
         <div class="row mt-5 mb-3">
           <div class="col-8">
             <div class="frame">
-              <% volunteer.images.each do |image| %>
-                <%= image_tag image, :size => '30x20', format: "jpg" %>
+              <% volunteer.images.first(1).each do |image| %>
+                <%= image_tag image, :size => '400x250', format: "jpg" %>
               <% end %>
             </div>
           </div>
