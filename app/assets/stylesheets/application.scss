@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 @import 'font-awesome-sprockets';
 @import "font-awesome";
@@ -96,9 +97,11 @@ body{
 }
 
 .volunteer-bg{
-  background-image: image-url('bg.jpg');
-  background-size:cover;
-  background-position:center;
   width: 100%;
   height: 3100px;
+}
+// カレンダーのサイズ
+#calendar{
+  height: 1000px;
+  width: 1000px;
 }

@@ -13,7 +13,8 @@
           <% else %>
             <div class="fukidasi">
               <div class="faceicon">
-                <%= attachment_image_tag customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                <%#= attachment_image_tag message.customer, :image, size: 20*20, fallback: "logo.png" %>
+                <%#= image_tag message.customer.image %>
               </div>
               <div class="chatting">
                 <div class="says">
@@ -41,7 +42,7 @@
       <% if messages.blank? %>
         <p>メッセージはありません</p>
       <% else%>
-        <% @messages.each do |message| %>
+        <% messages.each do |message| %>
             <% if message.customer != nil %>
               <div class="mycomment">
                 <p><%= message.message %></p>
@@ -50,7 +51,9 @@
             <% else %>
               <div class="fukidasi">
                 <div class="faceicon">
-                  <%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %>
+                  <%#= attachment_image_tag message.recruiter, :image, size: 20*20, fallback: "logo.png" %>
+                  <%#= image_tag image, :size => '30x20', format: "jpg" %>
+                  <%#= image_tag message.recruiter.image %>
                 </div>
                 <div class="chatting">
                   <div class="says">
@@ -67,7 +70,7 @@
         <div class="chat-comment">
           <%= form_with model: Message.new, url: messages_path, class: "send-form", remote: true do |f| %>
             <%= f.text_field :message, class:"address-new-form" %>
-            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :room_id, value: room.id %>
             <%= f.submit "送信", class:"register-green-btn" %>
           <% end %>
         </div>

@@ -1,14 +1,25 @@
 <%= render partial: 'layouts/header' %>
 <div class="container">
-  <h3>承認待ち一覧</h3>
-  <div class="row">
-    <% @applies.each do |app| %>
-      <div class="col-6">
-        &nbsp<%= app.customer.last_name %><br>
-            <%= link_to "承認", public_volunteer_volunteer_customers_path(app.volunteer, customer_id: app.customer.id, apply_id: app.id), method: :post, class: "btn btn-outline-primary mt-5 mb-5" %>
-            <%= link_to "却下", public_volunteer_apply_path(app.volunteer, app), method: :delete, class: "btn btn-outline-primary mt-5 mb-5" %>
-            <br>
+  <h3 class="text-center mt-5 mb-5">承認待ち一覧</h3>
+  <% @applies.each do |app| %>
+    <div class="row border-bottom mb-5">
+      <div class="col-6 row">
+          <div class="col-8 text-center mb-3">
+            <%= image_tag app.customer.image %> 
+            <%#= attachment_image_tag app.customer, :image, size: 10*10, fallback: "logo.png" %>
+          </div>
+          <div class="col-4">
+            <div class="lead">
+            <%= app.customer.last_name %>
+            <%= app.customer.first_name %>
+            </div><br/>
+            <p><%= app.customer.comment %></p>
+          </div>
       </div>
-    <% end %>
-  </div>
+      <div class="col-6 text-center">
+        <%= link_to "承認", public_volunteer_volunteer_customers_path(app.volunteer, customer_id: app.customer.id, apply_id: app.id), method: :post, class: "btn btn-outline-primary mr-3 mb-5" %>
+        <%= link_to "却下", public_volunteer_apply_path(app.volunteer, app), method: :delete, class: "btn btn-outline-primary mb-5" %>
+      </div>
+    </div>
+  <% end %>
 </div>

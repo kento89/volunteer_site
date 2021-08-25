@@ -1,1 +1,2 @@
-$('#chatRoom').html('<%= j(render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room}) %>');
+$('#chatRoom').html('<%= j(render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room, recruiter: @recruiter}) %>');
+$('#chatRoom').animate({scrollTop: $('#chatRoom')[0].scrollHeight}, 'fast');

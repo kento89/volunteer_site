@@ -8,7 +8,7 @@
         <div class="col-4">
 
           <div class="field">
-            <%= f.label :image, 'プロフィール画像' %><%= f.attachment_field :image %>
+            <%= f.file_field :image %>
           </div>
 
           <div class="field">
@@ -96,8 +96,9 @@
     </div>
   <% end %>
   <p class="text-center">既に登録済みの方</p>
-  <div class="text-center">
+  <div class="text-center mb-5">
     <%= render "customers/shared/links" %>
   </div>
 </div>
 </div>
+<%= render partial: 'layouts/footer' %>

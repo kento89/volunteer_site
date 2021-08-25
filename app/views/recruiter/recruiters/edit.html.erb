@@ -1,15 +1,14 @@
 <%= render partial: 'layouts/header' %>
-<main>
   <div class="container mt-3 mb-5">
     <h2 class="mb-5">プロフィール編集</h2>
       <%= form_with model: @recruiter, url: '/recruiter/recruiters/:id', method: :patch, local: true do |f| %>
-      <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= attachment_image_tag @recruiter, :image, size: 18*18, fallback: "", class: "img-fit rounded-circle mb-3" %>
+        <%= image_tag @recruiter.image, :size => '250x250', format: "jpg", class: "img-fit rounded-circle" %>
+        <%#= attachment_image_tag @recruiter, :image, size: 18*18, fallback: "", class: "img-fit rounded-circle mb-3" %>
         <div class="field">
           <p>アイコンを編集する</p>
-          <%= f.attachment_field :image %>
+          <%= f.file_field :image %>
         </div>
       </div>
       <div class="col-8">
@@ -54,4 +53,4 @@
     </div>
       <% end %>
   </div>
-</main>
+<%= render partial: 'layouts/footer' %>

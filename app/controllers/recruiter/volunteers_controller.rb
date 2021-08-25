@@ -8,12 +8,7 @@ class Recruiter::VolunteersController < ApplicationController
 
   def create
     @volunteer=Volunteer.new(volunteer_params)
-    @volunteer.recruiter_id = current_recruiter.id
     if @volunteer.save!
-      params[:images_attributes][:"0"][:image].each do |image|
-        Image.create(volunteer_id: @volunteer.id, image: image)
-      end
-      @room = Room.find_by(volunteer_id: params[:id])
       redirect_to root_path
     else
       render 'new'
@@ -29,6 +24,7 @@ class Recruiter::VolunteersController < ApplicationController
     @room = @volunteer.get_room
     @message = Message.new # Message.newで@messageのインスタンスを作成してformに値を渡す。
     @messages = Message.where(room_id: @room.id) # Messsage.where(room_id: @room.id)でメッセージを取得。
+    # @recruiter = @volunteer.recruiter
   end
 
   def edit
@@ -72,8 +68,9 @@ class Recruiter::VolunteersController < ApplicationController
       :comment,
       :limit,
       :genre,
-      :recruiter_id
-      )
+      :recruiter_id,
+      images: [],
+      ).merge(recruiter_id: current_recruiter.id)
   end
   
   def move_to_signed_in

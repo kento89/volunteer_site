@@ -38,4 +38,5 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show]
   resource :messages, only: [:create]
   resources :notifications, only: [:index, :update]
+  resources :volunteer_customers, only: [:index]
 end

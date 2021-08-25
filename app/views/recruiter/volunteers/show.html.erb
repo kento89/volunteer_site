@@ -13,15 +13,15 @@
         </div>
         <div class="col-2 mt-2">
           <p class="btn btn-light">実施日</p>
-          <p><%= @volunteer.time %></p>
+          <p><%= l @volunteer.time %></p>
         </div>
         <div class="col-2">
           <p class="btn btn-light mt-2">募集人数</p>
-          <p><%= @volunteer.people %></p>
+          <p class="text-center"><%= @volunteer.people %>名</p>
         </div>
         <div class="col-3 mt-2">
           <p class="btn btn-light">募集期限</p>
-          <p><%= @volunteer.limit %></p>
+          <p><%= @volunteer.limit %> まで</p>
         </div>
       </div>
       <div class="row mt-4">
@@ -76,13 +76,13 @@
     <div class="col-4">
       <div class="frame-slider" id="slider">
         <% @volunteer.images.each do |image| %>
-          <%= attachment_image_tag image, :image, :fill, 400, 400, format: "jpg" %>
+          <%= image_tag image, :size => '100x100', format: "jpg" %>
         <% end %>
       </div>
 
       <!--チャット小ルーム-->
         <div class="open-window off" id="chatRoom">
-          <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room} %>
+          <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room, recruiter: @recruiter} %>
         </div>
         <!--ここまでチャット-->
 
@@ -122,4 +122,4 @@
       </div>
     </div>
   </div>
-</div>
+</div><%= render partial: 'layouts/footer' %>
