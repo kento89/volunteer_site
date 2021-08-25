@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_050436) do
+ActiveRecord::Schema.define(version: 2021_08_20_105207) do
 
   create_table "applies", force: :cascade do |t|
     t.integer "customer_id"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 2021_08_19_050436) do
     t.integer "recruiter_id"
     t.integer "room_id"
     t.boolean "checked", default: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "visited_id"
+    t.integer "room_id"
+    t.integer "message_id"
+    t.string "action"
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recruiters", force: :cascade do |t|
