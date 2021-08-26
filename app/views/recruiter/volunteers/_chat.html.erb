@@ -1,0 +1,79 @@
+<h5 class="chat-title text-center"><%= volunteer.name %></h5>
+<% if recruiter_signed_in?  %>
+  <div id="chats">
+    <% if messages.blank? %>
+      <p>メッセージはありません</p>
+    <% else%>
+      <% messages.each do |message| %>
+          <% if message.recruiter != nil %>
+            <div class="mycomment">
+              <p><%= message.message %></p>
+            </div>
+            <div><%= message.recruiter.last_name %></div>
+          <% else %>
+            <div class="fukidasi">
+              <div class="faceicon">
+                <%= image_tag message.customer.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
+                <%#= image_tag  %>
+              </div>
+              <div class="chatting">
+                <div class="says">
+                  <p><%= message.message %></p>
+                </div>
+                <div class="name"><%= message.customer.last_name %></div>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="chat-input">
+    <div class="chat-comment">
+      <%= form_with model: Message.new, url: messages_path, class: "send-form", remote: true do |f| %>
+        <%= f.text_field :message, class:"address-new-form" %>
+        <%= f.hidden_field :room_id, value: room.id %>
+        <%= f.submit "送信", class:"register-green-btn" %>
+      <% end %>
+    </div>
+  </div>
+
+<% elsif customer_signed_in?  %>
+    <div id="chats">
+      <% if messages.blank? %>
+        <p>メッセージはありません</p>
+      <% else%>
+        <% messages.each do |message| %>
+            <% if message.customer != nil %>
+              <div class="mycomment">
+                <p><%= message.message %></p>
+              </div>
+              <div><%= message.customer.last_name %></div>
+            <% else %>
+              <div class="fukidasi">
+                <div class="faceicon">
+                  <%= image_tag message.recruiter.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
+                  <%#= attachment_image_tag message.recruiter, :image, size: 20*20, fallback: "logo.png" %>
+                  <%#= image_tag image, :size => '30x20', format: "jpg" %>
+                  <%#= image_tag message.recruiter.image %>
+                </div>
+                <div class="chatting">
+                  <div class="says">
+                    <p><%= message.message %></p>
+                  </div>
+                  <div class="name"><%= message.recruiter.last_name %></div>
+                </div>
+              </div>
+            <% end %>
+        <% end %>
+      <% end %>
+      </div>
+      <div class="chat-input">
+        <div class="chat-comment">
+          <%= form_with model: Message.new, url: messages_path, class: "send-form", remote: true do |f| %>
+            <%= f.text_field :message, class:"address-new-form" %>
+            <%= f.hidden_field :room_id, value: room.id %>
+            <%= f.submit "送信", class:"register-green-btn" %>
+          <% end %>
+        </div>
+      </div>
+<% end %>

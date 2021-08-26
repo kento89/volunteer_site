@@ -1,3 +1,0 @@
-class VolunteerImage < ApplicationRecord
- 
-end

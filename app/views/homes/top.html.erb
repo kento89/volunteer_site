@@ -6,14 +6,14 @@
       <% end %>
     <div class="top_visual">
       <div class="container">
-          <h2 class=".top-comment d-flex align-items-center" style="height:800px;">まだ見ぬ新たな出会い</h2>
+          <h2 class="d-flex align-items-center" style="height:800px;">まだ見ぬ新たな出会い</h2>
       </div>
     </div>
     <ul class="row-nav">
         <% if customer_signed_in? %>
           <div class="navbar row text-center">
             <li class="nav-item col-3 border-right link_a"><%= link_to "マイページ", public_customers_path(:id) %></li>
-            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", public_volunteers_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
             <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティアステータス", public_customers_path(:id) %></li>
             <li class="nav-item col-3 link_a"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
           </div>
@@ -22,71 +22,29 @@
             <li class="nav-item col-3 border-right link_a"><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
             <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
             <li class="nav-item col-3 border-right link_a"><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
-            <li class="nav-item col-3 lead"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
           </div>
         <% else %>
           <div class="navbar row text-center">
-            <li class="nav-item col-3 border-right link_a"><%= link_to "top", root_path %></li>
-            <li class="nav-item col-3 border-right link_a"><%= link_to "about", homes_about_path %></li>
-            <li class="nav-item col-3 border-right link_a"><%= link_to "signup", new_customer_registration_path %></li>
-            <li class="nav-item col-3 link_a"><%= link_to "signin", new_customer_session_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li class="nav-item col-3 border-right link_a"><%= link_to "ボランティア募集", homes_about_path %></li>
+            <li class="nav-item col-3 link_a"><%= link_to "ログイン", new_customer_session_path %></li>
           </div>
         <% end %>
       </ul>
-    <h2 class="t-main d-flex align-items-center">
-      あなたはボランティアにどんなイメージを持っていますか？
-    </h2>
-    <ul class="volunteer-image text-center bg-light pt-5 pb-5">
-      <li>人のために時間を使えるなんて凄い</li>
-      <li>なんか偽善的なイメージがある</li>
-      <li>面白そうだけど初めてだから敷居が高い</li>
-      <li>それって自分にメリットあるの？</li>
-    </ul>
-    <h2 class="text-center mt-5 mb-5 pt-5 pb-5">
-      まずは一度やってみませんか
-    </h2>
-
-
-    <h2 class="text-center mt-5 mb-5 pt-5 pb-5">
-      徹底的に会員様目線のサービス
-    </h2>
-    <h2 class="text-center mt-5 mb-5 pt-5 pb-5">
-      初めての不安を最大限サポートで解消します
-    </h2>
-    <h2 class="text-center mt-5 mb-10 pt-5 pb-5">
-      ボランティアは人のためにやること？
-    </h2>
-    <h2 class="text-center mt-5 mb-10 pt-5 pb-5">
-      本当にそうでしょうか
-    </h2>
-    </h2>
-    <h2 class="text-center mt-5 mb-5 pt-5 pb-5">
-      一度だけ体験してみませんか？
-    </h2>
-    </h2>
-    <h2 class="text-center mt-5 mb-5">
-      申し込みはこちらから
-    </h2>
-    <% if customer_signed_in? %>
-      <div class="text-center">
-        <%= link_to "募集中のボランティアを探す", public_volunteers_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-      </div>
-    <% elsif recruiter_signed_in? %>
-      <div class="text-center">
-        <%= link_to "ボランティア募集を投稿する", new_recruiter_volunteer_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-      </div>
-    <% else %>
-      <div class="text-center">
-        <%= link_to "会員登録", new_customer_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-      </div>
-      <h2 class="text-center mt-5 mb-5">
-        ボランティアのお願いをするならこちらから
-      </h2>
-      <div class="text-center">
-          <%= link_to "すでに募集人登録済み", new_recruiter_session_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-          <%= link_to "募集人 signup", new_recruiter_registration_path, class: "btn btn-outline-primary mt-5 mb-5" %>
-      </div>
-    <% end %>
-
+    <div class="main-text pt-5">
+        <h2 class="text-center mt-5 mb-10 pt-5 pb-5">
+          ボランティアは人のためにやること？
+        </h2>
+        <h2 class="text-center mt-5 mb-10 pt-5 pb-5">
+          本当にそうでしょうか
+        </h2>
+        </h2>
+        <h2 class="text-center mt-5 mb-5 pt-5 pb-5">
+          一度だけ体験してみませんか？
+          そこにはまだ出会ったことのない何かがあるかもしれません
+        </h2>
+    </div>
     <div class="bottom_visual"></div>
 </main>

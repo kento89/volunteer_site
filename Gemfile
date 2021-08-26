@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -48,7 +49,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -84,7 +84,7 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'rubocop-airbnb'
 
-gem 'fullcalendar-rails'
+gem 'fullcalendar-rails', '3.1'
 
 gem 'momentjs-rails'
 
@@ -92,7 +92,11 @@ gem "bootstrap4-datetime-picker-rails"
 
 gem "font-awesome-rails"
 
+<<<<<<< HEAD
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+=======
+gem 'rails-i18n'
+>>>>>>> development

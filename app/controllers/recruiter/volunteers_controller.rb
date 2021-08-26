@@ -1,4 +1,5 @@
 class Recruiter::VolunteersController < ApplicationController
+  before_action :move_to_signed_in, except: [:index]
 
   def new
     @volunteer=Volunteer.new
@@ -7,12 +8,7 @@ class Recruiter::VolunteersController < ApplicationController
 
   def create
     @volunteer=Volunteer.new(volunteer_params)
-    @volunteer.recruiter_id = current_recruiter.id
-    if @volunteer.save!
-      params[:images_attributes][:"0"][:image].each do |image|
-        Image.create(volunteer_id: @volunteer.id, image: image)
-      end
-      @room = Room.find_by(volunteer_id: params[:id])
+    if @volunteer.save
       redirect_to root_path
     else
       render 'new'
@@ -20,19 +16,15 @@ class Recruiter::VolunteersController < ApplicationController
   end
 
   def index
-    @volunteer = Volunteer.all
-    
+    @volunteer = Volunteer.all.page(params[:page]).reverse_order.per(6)
   end
 
   def show
     @volunteer = Volunteer.find(params[:id])
     @room = @volunteer.get_room
-    # @room.check_chats_notification(current_recruiter)
-    # @room = Room.find(params[:id])
-    # Messsage.where(room_id: @room.id)でメッセージを取得。
-    # Message.newで@messageのインスタンスを作成してformに値を渡す。
-    @message = Message.new
-    @messages = Message.where(room_id: @room.id)
+    @message = Message.new # Message.newで@messageのインスタンスを作成してformに値を渡す。
+    @messages = Message.where(room_id: @room.id) # Messsage.where(room_id: @room.id)でメッセージを取得。
+    # @recruiter = @volunteer.recruiter
   end
 
   def edit
@@ -46,7 +38,6 @@ class Recruiter::VolunteersController < ApplicationController
       flash[:notice] = "更新しました"
       redirect_to recruiter_volunteers_path
     else
-      flash[:notice] = "更新が失敗しています"
       render 'edit'
     end
 
@@ -76,8 +67,15 @@ class Recruiter::VolunteersController < ApplicationController
       :comment,
       :limit,
       :genre,
-      :recruiter_id
-      )
+      :recruiter_id,
+      images: [],
+      ).merge(recruiter_id: current_recruiter.id)
   end
-
+  
+  def move_to_signed_in
+    unless customer_signed_in? || recruiter_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  new_customer_registration_path
+    end
+  end
 end

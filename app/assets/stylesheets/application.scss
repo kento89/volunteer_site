@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
 @import 'font-awesome-sprockets';
 @import "font-awesome";
@@ -76,4 +77,44 @@ body{
 
 .link:hover{
   background-color: #cce9ff;
+}
+
+// ログイン画面の写真
+.back-image{
+  background-image: image-url('sakura.jpg');
+  background-size:cover;
+  background-position:center;
+  width: 100%;
+  height: auto;
+}
+// サインアップ画面の写真
+.back-image-signup{
+  background-image: image-url('sakura.jpg');
+  background-size:cover;
+  background-position:center;
+  width: 100%;
+  height: auto;
+}
+
+.volunteer-bg{
+  width: 100%;
+  height: auto;
+}
+// カレンダーのサイズ
+#calendar{
+  height: 1000px;
+  width: 1000px;
+}
+
+.error-messages{
+  color: white;
+  background-color: #FF3333;
+}
+
+#notice{
+  margin: auto;
+  text-align: center;
+  color: white;
+  background-color: #33FF66;
+  width: 70%;
 }
