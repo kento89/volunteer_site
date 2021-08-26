@@ -92,6 +92,7 @@ gem "bootstrap4-datetime-picker-rails"
 
 gem "font-awesome-rails"
 
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
