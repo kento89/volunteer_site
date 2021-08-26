@@ -91,3 +91,5 @@ gem 'momentjs-rails'
 gem "bootstrap4-datetime-picker-rails"
 
 gem "font-awesome-rails"
+
+gem 'rails-i18n'

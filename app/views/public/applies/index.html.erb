@@ -1,12 +1,12 @@
-<%= render partial: 'layouts/header' %>
 <div class="container">
   <h3 class="text-center mt-5 mb-5">承認待ち一覧</h3>
   <% @applies.each do |app| %>
     <div class="row border-bottom mb-5">
       <div class="col-6 row">
           <div class="col-8 text-center mb-3">
-            <%= image_tag app.customer.image %> 
-            <%#= attachment_image_tag app.customer, :image, size: 10*10, fallback: "logo.png" %>
+            <%= link_to (public_customers_path(app.customer)) do %>
+              <%= image_tag app.customer.image, :size => '150x100', fallback: "logo.png" %>
+            <% end %>
           </div>
           <div class="col-4">
             <div class="lead">

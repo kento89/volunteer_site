@@ -12,6 +12,20 @@ class Volunteer < ApplicationRecord
   enum genre: { '国際': 0, '教育': 1, '災害': 2, 'まちづくり': 3, '農業': 4, '貧困': 5, '福祉': 6, 'スポーツ': 7, '動物愛護': 8, '環境': 9 }
   enum volunteer_status: { '募集中': true, '募集終了': false}
   
+  # バリデーション
+  validates :name, presence: true
+  validates :a_litle_explanation, presence: true
+  validates :explanation, length: {maximum: 100}, presence: true
+  validates :place, presence: true
+  validates :time, presence: true
+  validates :people, presence: true
+  validates :merit, presence: true
+  validates :necessary_item, presence: true
+  validates :important_point, presence: true
+  validates :comment, presence: true
+  validates :limit, presence: true
+  validates :genre, presence: true
+  
   # 未読の通知があるか確認する
   def message_checked_customer
     Message.where(checked: false).any?

@@ -120,6 +120,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 
+
 $(document).on('tubolinks:load',function(){
   $('#go_chat').on('click', function(){
     window.open('room_path(@room)','subwin','width=300,height=300');

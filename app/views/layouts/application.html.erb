@@ -11,12 +11,23 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
+    <%= favicon_link_tag('logomain.png') %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
   </head>
 
   <body>
-    <%= yield %>
-    <!--<p id="notice"><%#= notice %></p>-->
+    <% unless current_page?(root_path) %>
+      <%= render partial: 'layouts/header' %>
+      <% if flash[:notice] %>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+        <%= yield %>
+      <%= render partial: 'layouts/footer' %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
