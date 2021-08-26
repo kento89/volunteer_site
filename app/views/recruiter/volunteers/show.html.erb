@@ -1,10 +1,9 @@
-<%= render partial: 'layouts/header' %>
 <div class="container mt-3 mb-3">
-  <% if recruiter_signed_in?  %>
-    <div class="text-right">
-      <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
-    </div>
-  <% end %>
+<% if recruiter_signed_in?  %>
+  <div class="text-right">
+    <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
+  </div>
+<% end %>
   <div class="row">
     <div class="col-8">
       <div class="row">
@@ -13,7 +12,7 @@
         </div>
         <div class="col-2 mt-2">
           <p class="btn btn-light">実施日</p>
-          <p><%= l @volunteer.time %></p>
+          <p><%= l @volunteer.time, format: :short %></p>
         </div>
         <div class="col-2">
           <p class="btn btn-light mt-2">募集人数</p>
@@ -21,7 +20,7 @@
         </div>
         <div class="col-3 mt-2">
           <p class="btn btn-light">募集期限</p>
-          <p><%= @volunteer.limit %> まで</p>
+          <p><%= l @volunteer.limit, format: :long %> まで</p>
         </div>
       </div>
       <div class="row mt-4">
@@ -79,13 +78,13 @@
           <%= image_tag image, :size => '100x100', format: "jpg" %>
         <% end %>
       </div>
-
+  
       <!--チャット小ルーム-->
         <div class="open-window off" id="chatRoom">
           <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room, recruiter: @recruiter} %>
         </div>
         <!--ここまでチャット-->
-
+  
       </div>
   </div>
   <div class="row mb-5">
@@ -101,7 +100,7 @@
       <% if recruiter_signed_in?  %>
         <div class="col-6 text-center">
          <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
-
+  
       <% elsif customer_signed_in? %>
         <div class="col-6">
           <!--ボランティア登録されている場合-->
@@ -120,6 +119,6 @@
       <% end %>
         </div>
       </div>
-    </div>
   </div>
-</div><%= render partial: 'layouts/footer' %>
+</div>
+</div>

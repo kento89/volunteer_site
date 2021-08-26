@@ -8,7 +8,7 @@ class Recruiter::VolunteersController < ApplicationController
 
   def create
     @volunteer=Volunteer.new(volunteer_params)
-    if @volunteer.save!
+    if @volunteer.save
       redirect_to root_path
     else
       render 'new'
@@ -38,7 +38,6 @@ class Recruiter::VolunteersController < ApplicationController
       flash[:notice] = "更新しました"
       redirect_to recruiter_volunteers_path
     else
-      flash[:notice] = "更新が失敗しています"
       render 'edit'
     end
 
