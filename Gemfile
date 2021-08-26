@@ -92,7 +92,6 @@ gem "bootstrap4-datetime-picker-rails"
 
 gem "font-awesome-rails"
 
-gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do
