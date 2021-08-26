@@ -144,7 +144,7 @@ $(document).on('tubolinks:load',function(){
 
 // 画面遷移した際にターボリンクが効かないため
 $(document).on('click', '#btnInvisible', function(){
-    let chats = $('#chatRoom').attr('class');
+    var chats = $('#chatRoom').attr('class');
     if(chats=='open-window off'){
       $('#chatRoom').removeClass('off');
       $('#chatRoom').animate({scrollTop: $('#chatRoom')[0].scrollHeight}, 'fast');
