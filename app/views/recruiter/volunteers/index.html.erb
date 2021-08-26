@@ -1,5 +1,4 @@
 <div class="volunteer-bg">
-  <%= render partial: 'layouts/header' %>
   <div class="container mt-3 mb-5">
     <h1 class="text-center mt-3 mb-3">ボランティア一覧</h1>
     
@@ -7,7 +6,6 @@
     <div class="search text-right">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <%= f.text_field :name %>
-        <%#= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
         <%= f.submit :'検索' %>
       <% end %>
     </div>
@@ -25,7 +23,7 @@
           <div class="col-8">
             <div class="frame">
               <% volunteer.images.first(1).each do |image| %>
-                <%= attachment_image_tag image, :image, :fill,500, 300, format: "jpg" %>
+                <%= image_tag image, :size => '400x250', format: "jpg" %>
               <% end %>
             </div>
           </div>

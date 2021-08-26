@@ -43,21 +43,22 @@ $(function () {
             };
 
             $(document).on('turbolinks:load', function () {
-                eventCalendar();
+                Calendar();
             });
             $(document).on('turbolinks:before-cache', clearCalendar);
 
             $('#calendar').fullCalendar({
                 events: '/volunteer_customers.json',
                  //カレンダー上部を年月で表示させる
-                titleFormat: 'YYYY年 M月',
+                titleFormat: 'YYYY年 MM月',
                 //曜日を日本語表示
                 dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
                 //ボタンのレイアウト
                 header: {
                     left: '',
                     center: 'title',
-                    right: 'today prev,next'
+                    right: 'today prev,next',
+
                 },
                 //終了時刻がないイベントの表示間隔
                 defaultTimedEventDuration: '03:00:00',
@@ -119,6 +120,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 
+
 $(document).on('tubolinks:load',function(){
   $('#go_chat').on('click', function(){
     window.open('room_path(@room)','subwin','width=300,height=300');
@@ -128,17 +130,17 @@ $(document).on('tubolinks:load',function(){
 
 
 // チャット画面の表示非表示を切り替える
-$(document).on('turbolinks:load', function() {
-  $(document).on('click', '#btnInvisible', function(){
-    let chats = $('#chatRoom').attr('class');
-    if(chats=='open-window off'){
-      $('#chatRoom').removeClass('off');
-      $('#chatRoom').animate({scrollTop: $('#chatRoom')[0].scrollHeight}, 'fast');
-    }else{
-      $('#chatRoom').addClass('off');
-    }
-  });
-});
+// $(document).on('turbolinks:load', function() {
+//   $(document).on('click', '#btnInvisible', function(){
+//     let chats = $('#chatRoom').attr('class');
+//     if(chats=='open-window off'){
+//       $('#chatRoom').removeClass('off');
+//       $('#chatRoom').animate({scrollTop: $('#chatRoom')[0].scrollHeight}, 'fast');
+//     }else{
+//       $('#chatRoom').addClass('off');
+//     }
+//   });
+// });
 
 // 画面遷移した際にターボリンクが効かないため
 $(document).on('click', '#btnInvisible', function(){

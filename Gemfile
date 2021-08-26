@@ -84,10 +84,12 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'rubocop-airbnb'
 
-gem 'fullcalendar-rails'
+gem 'fullcalendar-rails', '3.1'
 
 gem 'momentjs-rails'
 
 gem "bootstrap4-datetime-picker-rails"
 
 gem "font-awesome-rails"
+
+gem 'rails-i18n'

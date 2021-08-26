@@ -5,5 +5,4 @@ class Apply < ApplicationRecord
   validates :volunteer_id, presence: true
   validates  :customer_id, uniqueness: { scope: :volunteer_id}
   validates  :volunteer_id, uniqueness: { scope: :customer_id}
-  attachment :image
 end

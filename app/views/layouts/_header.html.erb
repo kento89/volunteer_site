@@ -11,7 +11,7 @@
         <% if customer_signed_in? %>
             <li class="nav-item"><%= link_to "マイページ", public_customers_path(:id), class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "ボランティア一覧", recruiter_volunteers_path, class: "btn btn-outline-primary mr-2" %></li>
-            <li class="nav-item"><%= link_to "ボランティアステータス", volunteer_customers_path, class: "btn btn-outline-primary mr-2" %></li>
+            <li class="nav-item"><%= link_to "ボランティア予定", volunteer_customers_path, class: "btn btn-outline-primary mr-2" %></li>
             <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-primary mr-2" %></li>
         <% elsif recruiter_signed_in? %>
             <li class="nav-item"><%= link_to "マイページ", recruiter_recruiter_path(:id), class: "btn btn-outline-primary mr-2" %></li>

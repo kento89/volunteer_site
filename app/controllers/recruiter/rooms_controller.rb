@@ -25,9 +25,6 @@ class Recruiter::RoomsController < ApplicationController
     @recruiter = Recruiter.where(id: recruiter_id).first
     @messages = room.messages.includes(:recruiter)
     @message = Message.new(room_id: room.id)
-    # @message = Message.new
-    # @messages = Message.where(room_id: @room.id)
-    # room = Room.find(params[:id])
   end
   
   private

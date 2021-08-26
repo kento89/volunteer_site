@@ -8,12 +8,7 @@ class Recruiter::VolunteersController < ApplicationController
 
   def create
     @volunteer=Volunteer.new(volunteer_params)
-    @volunteer.recruiter_id = current_recruiter.id
-    if @volunteer.save!
-      params[:images_attributes][:"0"][:image].each do |image|
-        Image.create(volunteer_id: @volunteer.id, image: image)
-      end
-      @room = Room.find_by(volunteer_id: params[:id])
+    if @volunteer.save
       redirect_to root_path
     else
       render 'new'
@@ -43,7 +38,6 @@ class Recruiter::VolunteersController < ApplicationController
       flash[:notice] = "更新しました"
       redirect_to recruiter_volunteers_path
     else
-      flash[:notice] = "更新が失敗しています"
       render 'edit'
     end
 
@@ -73,8 +67,9 @@ class Recruiter::VolunteersController < ApplicationController
       :comment,
       :limit,
       :genre,
-      :recruiter_id
-      )
+      :recruiter_id,
+      images: [],
+      ).merge(recruiter_id: current_recruiter.id)
   end
   
   def move_to_signed_in
