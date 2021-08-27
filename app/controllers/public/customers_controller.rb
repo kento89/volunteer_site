@@ -3,6 +3,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(current_customer.id)
     @volunteer_customer = VolunteerCustomer.where(customer_id: current_customer.id)
+    # @volunteer = @volunteer_customer.find_by(volunteer_id: volunteer.id)
   end
   
   def index

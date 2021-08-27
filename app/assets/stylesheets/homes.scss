@@ -28,31 +28,35 @@
 }
 
 // トップ画面画像
-
-.full div{
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.top_visual{
   width: 100%;
   height: 1300px;
+  background-image: image-url('PF.top.jpg');
+  background-size: cover;
+  background-position: center;
   opacity: 0.7;
 }
 
-.full div.top_visual1{
+.full div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+}
+.full div.img01 {
   background-image: image-url('PF.top.jpg');
 }
-.full div.top_visual2{
-  background-image: image-url('sakura.jpg');
-}
-.full div.top_visual3{
+.full div.img02 {
   background-image: image-url('PF.footer.jpg');
 }
-
-.full .slick-dots {
-  bottom: 4%;
-  z-index: +1;
+.full div.img03 {
+  background-image: image-url('sakura.jpg');
 }
-
+.full .slick-dots {
+    bottom: 4%;
+    z-index: +1;
+}
 
 
 // トップ画面フッダー画像
@@ -67,7 +71,7 @@
 
 .about-image{
   width: 100%;
-  height: 550px;
+  height: 100vh;
 }
 
 li{
@@ -94,17 +98,40 @@ li{
 }
 
 .nav-item{
-  border-right: 2px;
-  border-color: black;
-  padding: 10px 16px;
-&:hover{
-  border-radius: 10px;
-  background-color: #BAD3FF;
-  box-shadow: 0 5px 10px #D7EEFF;
-　transform: translate(0, -5px);
-}
+  margin-right: 10px;
+//   border-right: 2px;
+//   border-color: black;
+//   padding: 10px 16px;
+// &:hover{
+//   border-radius: 10px;
+//   background-color: #BAD3FF;
+//   box-shadow: 0 5px 10px #D7EEFF;
+// 　transform: translate(0, -5px);
+// }
 }
 
-.link_a{
-  font-size: 30px;
+// .link_a{
+//   font-size: 30px;
+// }
+
+a {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 7px;
+}
+
+a.button {
+  color: rgba(0, 86, 255, 0.6);
+  box-shadow: rgba(0, 86, 255, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: rgba(0, 0, 255, 0.7) 0 80px 0px 2px inset;
 }

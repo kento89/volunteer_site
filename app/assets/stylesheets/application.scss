@@ -81,21 +81,16 @@ body{
 
 // ログイン画面の写真
 .back-image{
-  background-image: image-url('sakura.jpg');
-  background-size:cover;
-  background-position:center;
   width: 100%;
   height: auto;
 }
 // サインアップ画面の写真
 .back-image-signup{
-  background-image: image-url('sakura.jpg');
-  background-size:cover;
-  background-position:center;
   width: 100%;
   height: auto;
 }
 
+// ボランティア一覧のbackground
 .volunteer-bg{
   width: 100%;
   height: auto;
@@ -106,15 +101,22 @@ body{
   width: 1000px;
 }
 
+// エラーメッセージ
 .error-messages{
   color: white;
   background-color: #FF3333;
 }
 
+// サクセスメッセージ
 #notice{
   margin: auto;
   text-align: center;
   color: white;
   background-color: #33FF66;
   width: 70%;
+}
+
+// logoの編集
+.top-size{
+  font-size: 3.5em;
 }
