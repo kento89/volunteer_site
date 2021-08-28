@@ -39,7 +39,14 @@ body{
 
 .footer-bg{
   background-color: #CCFFFF;
-  height: 80px;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+}
+
+.footer-text{
+  color: #007bff
 }
 
 .slick-next{
