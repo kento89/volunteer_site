@@ -1,6 +1,6 @@
 class Recruiter::RoomsController < ApplicationController
   before_action :authenticate_recruiter!
-  before_action :same_room_recruiter!, only: show
+  before_action :same_room_recruiter!, only: :show
   
   def index
     my_rooms_ids = current_recruiter.volunteer.user_rooms.selct(:room_id)

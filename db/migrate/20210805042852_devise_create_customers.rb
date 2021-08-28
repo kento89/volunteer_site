@@ -44,8 +44,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       t.boolean :volunteer_status, null: false, default: false
       t.boolean :customer_status, null: false, default: false
       t.integer :volunteer_id
-      t.references :apply, foreign_key: true
-      t.references :volunteer_customer, foreign_key: true
+      # t.references :apply, foreign_key: true
+      # t.references :volunteer_customer, foreign_key: true
 
 
       t.timestamps null: false

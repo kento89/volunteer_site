@@ -67,8 +67,8 @@
           <div class="field row">
             <p class="col-4">ボランティア経験</p>
             <div class="col-8">
-              <%= f.radio_button :experience, true %><%= f.label :experience, "あり", {value: true, style: 'display: inline-block;'} %>
-              <%= f.radio_button :experience, false %><%= f.label :experience, "なし", {value: false, style: 'display: inline-block;'} %>
+              <%= f.radio_button :experience,  "経験あり", style: 'display: inline-block;'%><%= f.label :experience, "あり" %>
+              <%= f.radio_button :experience,  "経験なし", style: 'display: inline-block;'%><%= f.label :experience, "なし" %>
             </div>
           </div>
 

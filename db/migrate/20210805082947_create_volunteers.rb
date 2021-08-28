@@ -16,8 +16,8 @@ class CreateVolunteers < ActiveRecord::Migration[5.2]
       t.boolean :recruiter_status, null: false, default: true
       t.boolean :volunteer_status, null: false, default: true
       t.references :recruiter, foreign_key: true
-      t.references :apply, foreign_key: true
-      t.references :volunteer_customer, foreign_key: true
+      # t.references :apply, foreign_key: true
+      # t.references :volunteer_customer, foreign_key: true
       t.timestamps
     end
   end

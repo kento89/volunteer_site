@@ -60,14 +60,10 @@ ActiveRecord::Schema.define(version: 2021_08_24_110606) do
     t.boolean "volunteer_status", default: false, null: false
     t.boolean "customer_status", default: false, null: false
     t.integer "volunteer_id"
-    t.integer "apply_id"
-    t.integer "volunteer_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["apply_id"], name: "index_customers_on_apply_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
-    t.index ["volunteer_customer_id"], name: "index_customers_on_volunteer_customer_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -113,11 +109,9 @@ ActiveRecord::Schema.define(version: 2021_08_24_110606) do
 
   create_table "rooms", force: :cascade do |t|
     t.datetime "customer_time"
-    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "volunteer_id"
-    t.index ["message_id"], name: "index_rooms_on_message_id"
   end
 
   create_table "user_rooms", force: :cascade do |t|
@@ -157,14 +151,10 @@ ActiveRecord::Schema.define(version: 2021_08_24_110606) do
     t.boolean "recruiter_status", default: true, null: false
     t.boolean "volunteer_status", default: true, null: false
     t.integer "recruiter_id"
-    t.integer "apply_id"
-    t.integer "volunteer_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "room_id"
-    t.index ["apply_id"], name: "index_volunteers_on_apply_id"
     t.index ["recruiter_id"], name: "index_volunteers_on_recruiter_id"
-    t.index ["volunteer_customer_id"], name: "index_volunteers_on_volunteer_customer_id"
   end
 
 end
