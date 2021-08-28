@@ -109,11 +109,9 @@ ActiveRecord::Schema.define(version: 2021_08_24_110606) do
 
   create_table "rooms", force: :cascade do |t|
     t.datetime "customer_time"
-    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "volunteer_id"
-    t.index ["message_id"], name: "index_rooms_on_message_id"
   end
 
   create_table "user_rooms", force: :cascade do |t|
