@@ -9,32 +9,27 @@
           <h2 class="d-flex align-items-center" style="height:800px;">まだ見ぬ新たな出会い</h2>
       </div>
     </div>
-    <div class="full">
-      <div class="img01"></div>
-      <div class="img02"></div>
-      <div class="img03"></div>
-    </div>
     <ul class="row-nav container">
         <% if customer_signed_in? %>
           <div class="navbar row text-center">
-            <li class="nav-item col-2 link_a text-center"><%= link_to (public_customers_path(:id)) do %><i class="far fa-address-card faa-burst animated-hover top-size"></i><p>マイページ</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><i class="fas fa-list-ul faa-burst animated-hover top-size"></i><p>ボランティア一覧</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (volunteer_customers_path) do %><i class="far fa-calendar faa-burst animated-hover top-size"></i><p>ボランティア予定</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (destroy_customer_session_path), method: :delete do %><i class="fas fa-sign-out-alt faa-burst animated-hover top-size"></i><p>ログアウト</p><% end %></li>
+            <li class="nav-item col-2 link_a text-center"><%= link_to (public_customers_path(:id)) do %><div class="btn btn-gradient"><p>マイページ</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><div class="btn btn-gradient"><p>ボランティア一覧</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (volunteer_customers_path) do %><div class="btn btn-gradient"><p>ボランティア予定</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (destroy_customer_session_path), method: :delete do %><div class="btn btn-gradient"><p>ログアウト</p></div><% end %></li>
           </div>
         <% elsif recruiter_signed_in? %>
           <div class="navbar row text-center">
-            <li class="nav-item col-2 link_a"><%= link_to(recruiter_recruiter_path(:id)) do %><i class="far fa-address-card faa-burst animated-hover top-size"></i><p>マイページ</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><i class="fas fa-list-ul faa-burst animated-hover top-size"></i><p>ボランティア一覧</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (new_recruiter_volunteer_path) do %><i class="fas fa-paste faa-burst animated-hover top-size"></i><p>新規投稿</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (destroy_recruiter_session_path), method: :delete do %><i class="fas fa-sign-out-alt faa-burst animated-hover top-size"></i><p>ログアウト</p><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to(recruiter_recruiter_path(:id)) do %><div class="btn btn-gradient"><p>マイページ</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><div class="btn btn-gradient"><p>ボランティア一覧</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (new_recruiter_volunteer_path) do %><div class="btn btn-gradient"><p>新規投稿</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (destroy_recruiter_session_path), method: :delete do %><div class="btn btn-gradient"><p>ログアウト</p></div><% end %></li>
           </div>
         <% else %>
           <div class="navbar row text-center">
-            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><i class="fas fa-list-ul faa-burst animated-hover top-size"></i><p>ボランティア一覧</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (new_customer_registration_path) do %><i class="far fa-registered faa-burst animated-hover top-size"></i><p>新規登録</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (homes_about_path) do %><i class="fas fa-registered faa-burst animated-hover top-size"></i><p>ボランティア募集</p><% end %></li>
-            <li class="nav-item col-2 link_a"><%= link_to (new_customer_session_path) do %><i class="fas fa-sign-in-alt faa-burst animated-hover top-size"></i><p>ログイン</p><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (recruiter_volunteers_path) do %><div class="btn btn-gradient"><p>ボランティア一覧</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (new_customer_registration_path) do %><div class="btn btn-gradient"><p>新規登録</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (homes_about_path) do %><div class="btn btn-gradient"><p>ボランティア募集</p></div><% end %></li>
+            <li class="nav-item col-2 link_a"><%= link_to (new_customer_session_path) do %><div class="btn btn-gradient"><p>ログイン</p></div><% end %></li>
           </div>
         <% end %>
       </ul>
