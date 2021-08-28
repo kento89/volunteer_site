@@ -84,7 +84,7 @@ $(function () {
 });
 
 // 画像を選択したら表示する
-let key = 0;
+var key = 0;
 function loadImage(obj) {
 for (i = 0; i < obj.files.length; i++) {
     var fileReader = new FileReader();
@@ -118,7 +118,6 @@ $(document).on('turbolinks:load', function(){
         autoplaySpeed: 2000,
     });
 });
-
 
 
 $(document).on('tubolinks:load',function(){

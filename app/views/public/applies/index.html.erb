@@ -17,8 +17,8 @@
           </div>
       </div>
       <div class="col-6 text-center">
-        <%= link_to "承認", public_volunteer_volunteer_customers_path(app.volunteer, customer_id: app.customer.id, apply_id: app.id), method: :post, class: "btn btn-outline-primary mr-3 mb-5" %>
-        <%= link_to "却下", public_volunteer_apply_path(app.volunteer, app), method: :delete, class: "btn btn-outline-primary mb-5" %>
+        <%= link_to "承認", public_volunteer_volunteer_customers_path(app.volunteer, customer_id: app.customer.id, apply_id: app.id), method: :post, class: "button" %>
+        <%= link_to "却下", public_volunteer_apply_path(app.volunteer, app), method: :delete, class: "button" %>
       </div>
     </div>
   <% end %>

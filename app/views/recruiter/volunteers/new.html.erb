@@ -112,6 +112,9 @@
         <div class="col-4">
           <p>画像選択　※3枚以上投稿が必要です</p>
             <%= f.file_field :images, multiple: true %>
+              <%#= f.file_field :images, multipe: true do |i| %>
+                <%#= i.images_tag :image, multiple: true, name: "images_attributes[0][image][]", type: "file", accept: "image/*", multiple: " multiple", onchange: "loadImage(this);" %>
+              <%# end %>
           <div id="imgPreviewField" class="mt-3 mr-2 d-flex"></div>
         </div>
       </div>

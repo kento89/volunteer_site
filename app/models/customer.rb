@@ -9,8 +9,8 @@ class Customer < ApplicationRecord
   has_many :volunteers, through: :volunteer_customers
   has_many :notifications, dependent: :destroy
 
-  enum experience: { '経験なし': 'false', '経験あり': 'true' }
-  enum volunteer_status: { 'ボランティア予定なし': 'false', 'ボランティア予定あり': 'true' }
+  enum experience: { '経験なし': false, '経験あり': true }
+  enum volunteer_status: { 'ボランティア予定なし': false, 'ボランティア予定あり': true }
 
 # バリデーション
   validates :last_name, presence: true

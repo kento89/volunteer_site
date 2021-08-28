@@ -100,9 +100,9 @@
         <!--これから申し込む場合-->
         <% elsif current_customer %>
           <% if @apply %>
-            <%= link_to "申し込みを取り消す", public_volunteer_apply_path(@volunteer, @apply), method: :delete, date: {confirm: "このボランティアへ申し込みを取り消しますか？"}, class: "btn btn-outline-primary" %>
+            <%= link_to "申し込みを取り消す", public_volunteer_apply_path(@volunteer, @apply), method: :delete, date: {confirm: "このボランティアへ申し込みを取り消しますか？"}, class: "button" %>
           <% else %>
-            <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
+            <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "button" %>
           <% end %>
         <% end %>
       </div>
