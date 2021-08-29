@@ -8,10 +8,12 @@
 <% notification.each do |n| %>
   <div class="row text-center mb-5">
     <div class="col-3">
-      <%= n.message.room.volunteer.name %>
+      <%= link_to (recruiter_volunteer_path(n.message.room.volunteer)) do %>
+        <%= n.message.room.volunteer.name %>
+      <% end %>
     </div>
     <div class="col-2">
-      <%= n.message.customer.last_name %>
+        <%= n.message.customer.last_name %>
     </div>
     <div class="col-5">
       <%= n.message.message %>
