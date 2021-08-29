@@ -1,7 +1,9 @@
 <div class="container mt-3 mb-3">
 <% if recruiter_signed_in?  %>
   <div class="text-right">
+  <% if current_recruiter.id == @volunteer.recruiter.id %>
     <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
+  <% end %>
   </div>
 <% end %>
   <div class="row">
@@ -99,8 +101,9 @@
         </div>
       <% if recruiter_signed_in?  %>
         <div class="col-6 text-center">
-         <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
-  
+        <% if current_recruiter.id == @volunteer.recruiter.id %>
+           <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
+        <% end %> 
       <% elsif customer_signed_in? %>
         <div class="col-6">
           <!--ボランティア登録されている場合-->

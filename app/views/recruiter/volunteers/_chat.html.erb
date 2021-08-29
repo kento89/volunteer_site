@@ -13,8 +13,11 @@
           <% else %>
             <div class="fukidasi">
               <div class="faceicon">
-                <%= image_tag message.customer.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
-                <%#= image_tag  %>
+                <% if message.customer.image.attached? %>
+                  <%= image_tag message.customer.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
+                <% else %>
+                  <p class="profile_image_chat rounded-circle"></p>
+                <% end %>
               </div>
               <div class="chatting">
                 <div class="says">
@@ -51,10 +54,11 @@
             <% else %>
               <div class="fukidasi">
                 <div class="faceicon">
-                  <%= image_tag message.recruiter.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
-                  <%#= attachment_image_tag message.recruiter, :image, size: 20*20, fallback: "logo.png" %>
-                  <%#= image_tag image, :size => '30x20', format: "jpg" %>
-                  <%#= image_tag message.recruiter.image %>
+                  <% if message.recruiter.image.attached? %>
+                    <%= image_tag message.recruiter.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %>
+                  <% else %>
+                    <p class="profile_image_chat rounded-circle"></p>
+                <% end %>
                 </div>
                 <div class="chatting">
                   <div class="says">

@@ -22,7 +22,7 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true
   validates :experience, presence: true
   validates :comment, length: {maximum: 200}, presence: true
-  validates :image_attached, presence: true
+  validate :image_attached
   
   private
   # 画像指定

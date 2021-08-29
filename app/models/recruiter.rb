@@ -17,7 +17,7 @@ class Recruiter < ApplicationRecord
   validates :postal_number, presence: true
   validates :address, presence: true
   validates :phone_number, presence: true
-  validates :image_attached, presence: true
+  validate :image_attached
   
   private
   # 画像指定

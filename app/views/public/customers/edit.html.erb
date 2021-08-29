@@ -12,7 +12,12 @@
     <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
   <div class="row">
     <div class="col-4">
-      <%= image_tag @customer.image, :size => '250x250', format: "jpg", class: "img-fit rounded-circle" %>
+      <% if @customer.image.attached? %>
+        <%= image_tag @customer.image, :size => '250x250', format: "jpg", fallback: "no-image.jpg", class: "img-fit rounded-circle" %>
+      <% else %>
+        <!--<img src="logomain.png" alt="写真なし" class= "img-fit rounded-circle">-->
+        <p class="profile_image rounded-circle"></p>
+      <% end %>
       <div class="field">
         <p>アイコンを編集する</p>
         <%= f.file_field :image %>
@@ -61,8 +66,8 @@
       <div class="field row">
         <p class="col-4">ボランティア経験</p>
         <p class="col-8">
-          <%= f.radio_button :experience, true %><%= f.label :experience, "あり", {value: true, style: 'display: inline-block;'} %>
-          <%= f.radio_button :experience, false %><%= f.label :experience, "なし", {value: false, style: 'display: inline-block;'} %>
+          <%= f.radio_button :experience,  "経験あり", style: 'display: inline-block;'%><%= f.label :experience, "あり" %>
+          <%= f.radio_button :experience,  "経験なし", style: 'display: inline-block;'%><%= f.label :experience, "なし" %>
         </p>
       </div>
     <%= f.submit "変更を保存", class: "button" %>

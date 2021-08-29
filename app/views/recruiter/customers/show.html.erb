@@ -1,7 +1,7 @@
 <div class="container mt-3">
 <h2 class="text-center">マイページ</h2>
   <div class="row mt-5 mb-5">
-    <div class="col-3">
+    <div class="col-4">
       <% if @customer.image.attached? %>
         <%= image_tag @customer.image, :size => '250x250', format: "jpg", fallback: "no-image.jpg", class: "img-fit rounded-circle" %>
       <% else %>
@@ -12,7 +12,7 @@
         <p><%= @customer.comment %></p>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-8">
       <div class="row">
         <div class="col-5">
           <p class="bg-light text-center">名前</p>
@@ -70,20 +70,5 @@
         </div>
       </div>
     </div>
-    <%# end %>
-    <div class="col-3">
-      <h5>予定しているボランティア</h5>
-      <% @volunteer_customer.each do |volunteer| %>
-        <div class="text-center link border-bottom">
-          <%= link_to (recruiter_volunteer_path(volunteer)) do %>
-            <p class="mt-3">開始日時: <%= l volunteer.volunteer.time, format: :short %></p>
-            <p><%= volunteer.volunteer.name %></p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="text-center">
-    <%= link_to "編集する", edit_public_customers_path, class: "btn btn-outline-primary mb-5" %>
   </div>
 </div>
