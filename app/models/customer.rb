@@ -22,5 +22,15 @@ class Customer < ApplicationRecord
   validates :phone_number, presence: true
   validates :experience, presence: true
   validates :comment, length: {maximum: 200}, presence: true
+  validates :image_attached, presence: true
+  
+  private
+  # 画像指定
+  def image_attached
+    unless image.attached?
+      image.purge
+      errors.add(:images, "を登録して下さい")
+    end
+  end
   
 end

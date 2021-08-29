@@ -9,14 +9,14 @@ class Recruiter::VolunteersController < ApplicationController
   def create
     @volunteer=Volunteer.new(volunteer_params)
     if @volunteer.save
-      redirect_to root_path
+      redirect_to recruiter_volunteers_path
     else
       render 'new'
     end
   end
 
   def index
-    @volunteer = Volunteer.all.page(params[:page]).reverse_order.per(2)
+    @volunteer = Volunteer.all.page(params[:page]).reverse_order.per(3)
   end
 
   def show

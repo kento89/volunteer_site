@@ -9,7 +9,9 @@ ja:
         postal_number: '郵便番号'
         address: '住所'
         phone_number: '電話番号'
-        email: 'EMAIL'
+        email: 'メールアドレス'
+        images: '画像'
+        password: 'パスワード'
       customer:
         last_name: '姓'
         first_name: '名'
@@ -18,8 +20,11 @@ ja:
         postal_number: '郵便番号'
         address: '住所'
         phone_number: '電話番号'
-        email: 'EMAIL'
+        email: 'メールアドレス'
         experience: 'ボランティア経験'
+        images: '画像'
+        password: 'パスワード'
+        comment: 'コメント'
       volunteer:
         name: 'ボランティア名'
         a_litle_explanation: '概要'
@@ -33,6 +38,7 @@ ja:
         comment: 'コメント'
         limit: '募集締め切り日'
         genre: 'ジャンル'
+        images: '画像'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
