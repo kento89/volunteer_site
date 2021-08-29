@@ -1,4 +1,5 @@
 class Public::VolunteerCustomersController < ApplicationController
+  
   def create
     @volunteer_customer = VolunteerCustomer.create(volunteer_id: volunteer_customer_params[:volunteer_id], customer_id: volunteer_customer_params[:customer_id])
     Apply.find(volunteer_customer_params[:apply_id]).destroy!

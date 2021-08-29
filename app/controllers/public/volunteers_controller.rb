@@ -1,4 +1,5 @@
 class Public::VolunteersController < ApplicationController
+  before_action :authenticate_customer!
   
   def index
     @volunteer = Volunteer.all

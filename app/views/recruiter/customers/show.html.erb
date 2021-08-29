@@ -1,72 +1,74 @@
-<div class="container mt-3">
-<h2 class="text-center">マイページ</h2>
-  <div class="row mt-5 mb-5">
-    <div class="col-4">
-      <% if @customer.image.attached? %>
-        <%= image_tag @customer.image, :size => '250x250', format: "jpg", fallback: "no-image.jpg", class: "img-fit rounded-circle" %>
-      <% else %>
-        <!--<img src="logomain.png" alt="写真なし" class= "img-fit rounded-circle">-->
-        <p class="profile_image rounded-circle"></p>
-      <% end %>
-      <div class="my_comment mt-3">
-        <p><%= @customer.comment %></p>
-      </div>
-    </div>
-    <div class="col-8">
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">名前</p>
-        </div>
-        <div class="col-5 text-center">
-          <%= @customer.last_name %><%= @customer.first_name %>
+<div class="about-image">
+  <div class="container mt-3">
+  <h2 class="text-center">マイページ</h2>
+    <div class="row mt-5 mb-5">
+      <div class="col-4">
+        <% if @customer.image.attached? %>
+          <%= image_tag @customer.image, :size => '250x250', format: "jpg", fallback: "no-image.jpg", class: "img-fit rounded-circle" %>
+        <% else %>
+          <!--<img src="logomain.png" alt="写真なし" class= "img-fit rounded-circle">-->
+          <p class="profile_image rounded-circle"></p>
+        <% end %>
+        <div class="my_comment mt-3">
+          <p><%= @customer.comment %></p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">フリガナ</p>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">名前</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.last_name %><%= @customer.first_name %>
+          </div>
         </div>
-        <div class="col-5 text-center">
-          <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">フリガナ</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">郵便番号</p>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">郵便番号</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.postal_number %>
+          </div>
         </div>
-        <div class="col-5 text-center">
-          <%= @customer.postal_number %>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">住所</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.address %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">住所</p>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">電話番号</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.phone_number %>
+          </div>
         </div>
-        <div class="col-5 text-center">
-          <%= @customer.address %>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">メールアドレス</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.email %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">電話番号</p>
-        </div>
-        <div class="col-5 text-center">
-          <%= @customer.phone_number %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">メールアドレス</p>
-        </div>
-        <div class="col-5 text-center">
-          <%= @customer.email %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <p class="bg-light text-center">ボランティア経験</p>
-        </div>
-        <div class="col-5 text-center">
-          <%= @customer.experience %>
+        <div class="row">
+          <div class="col-5">
+            <p class="bg-light text-center">ボランティア経験</p>
+          </div>
+          <div class="col-5 text-center">
+            <%= @customer.experience %>
+          </div>
         </div>
       </div>
     </div>

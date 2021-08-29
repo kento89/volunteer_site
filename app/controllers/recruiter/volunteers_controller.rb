@@ -24,7 +24,7 @@ class Recruiter::VolunteersController < ApplicationController
     @room = @volunteer.get_room
     @message = Message.new # Message.newで@messageのインスタンスを作成してformに値を渡す。
     @messages = Message.where(room_id: @room.id) # Messsage.where(room_id: @room.id)でメッセージを取得。
-    # @recruiter = @volunteer.recruiter
+    @apply = @volunteer.applies
   end
 
   def edit
@@ -75,7 +75,8 @@ class Recruiter::VolunteersController < ApplicationController
   def move_to_signed_in
     unless customer_signed_in? || recruiter_signed_in?
       #サインインしていないユーザーはログインページが表示される
-      redirect_to  new_customer_registration_path
+      flash[:notice] = "ログイン後に閲覧可能です"
+      redirect_to  new_customer_session_path
     end
   end
 end

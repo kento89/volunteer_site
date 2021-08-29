@@ -23,6 +23,7 @@ class Customer < ApplicationRecord
   validates :experience, presence: true
   validates :comment, length: {maximum: 200}, presence: true
   validate :image_attached
+  # validate :email, uniqueness: true
   
   private
   # 画像指定
