@@ -4,7 +4,6 @@ class Volunteer < ApplicationRecord
   has_many :volunteer_customers, dependent: :destroy
   has_many :applies, dependent: :destroy
   has_many :customers, dependent: :destroy, through: :volunteer_customers
-
   # attr_accessor :images_attributes
   has_many_attached :images
 

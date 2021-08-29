@@ -1,127 +1,131 @@
-<div class="container mt-3 mb-3">
-<% if recruiter_signed_in?  %>
-  <div class="text-right">
-  <% if current_recruiter.id == @volunteer.recruiter.id %>
-    <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
-  <% end %>
-  </div>
-<% end %>
-  <div class="row">
-    <div class="col-8">
-      <div class="row">
-        <div class="col-5">
-          <h2><%= @volunteer.name %></h2>
-        </div>
-        <div class="col-2 mt-2">
-          <p class="btn btn-light">実施日</p>
-          <p><%= l @volunteer.time, format: :short %></p>
-        </div>
-        <div class="col-2">
-          <p class="btn btn-light mt-2">募集人数</p>
-          <p class="text-center"><%= @volunteer.people %>名</p>
-        </div>
-        <div class="col-3 mt-2">
-          <p class="btn btn-light">募集期限</p>
-          <p><%= l @volunteer.limit, format: :long %> まで</p>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">説明</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.explanation %>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">実施場所</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.place %>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">参加するメリット</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.merit %>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">必要物品</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.necessary_item %>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">注意点</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.important_point %>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-3">
-          <p class="btn btn-light">コメント</p>
-        </div>
-        <div class="col-9">
-          <%= @volunteer.comment %>
-        </div>
-      </div>
+<div class="about-image"> 
+  <div class="container mt-3 mb-3">
+  <% if recruiter_signed_in?  %>
+    <div class="text-right">
+    <% if current_recruiter.id == @volunteer.recruiter.id %>
+      <%= link_to "承認待ち一覧", public_volunteer_applies_path(@volunteer), class:"btn btn-primary" %>
+    <% end %>
     </div>
-    <div class="col-4">
-      <div class="frame-slider" id="slider">
-        <% @volunteer.images.each do |image| %>
-          <%= image_tag image, :size => '100x100', format: "jpg" %>
-        <% end %>
-      </div>
-  
-      <!--チャット小ルーム-->
-        <div class="open-window off" id="chatRoom">
-          <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room, recruiter: @recruiter} %>
+  <% end %>
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-5">
+            <h2><%= @volunteer.name %></h2>
+          </div>
+          <div class="col-2 mt-2">
+            <p class="btn btn-light">実施日</p>
+            <p><%= l @volunteer.time, format: :short %></p>
+          </div>
+          <div class="col-2">
+            <p class="btn btn-light mt-2">募集人数</p>
+            <p class="text-center"><%= @volunteer.people %>名</p>
+          </div>
+          <div class="col-3 mt-2">
+            <p class="btn btn-light">募集期限</p>
+            <p><%= l @volunteer.limit, format: :long %> まで</p>
+          </div>
         </div>
-        <!--ここまでチャット-->
-  
-      </div>
-  </div>
-  <div class="row mb-5">
-    <div class="col-8"></div>
-    <div class="col-4">
-      <div class="row">
-        <!--チャット表示、非表示ボタン-->
-        <div class="col-6 text-center">
-            <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
-              チャット
-            </button>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">説明</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.explanation %>
+          </div>
         </div>
-      <% if recruiter_signed_in?  %>
-        <div class="col-6 text-center">
-        <% if current_recruiter.id == @volunteer.recruiter.id %>
-           <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
-        <% end %> 
-      <% elsif customer_signed_in? %>
-        <div class="col-6">
-          <!--ボランティア登録されている場合-->
-          <% if @volunteer.customer_volunteer_in?(current_customer) %>
-            <%#= link_to "ボランティアをキャンセルする", public_volunteer_volunteer_customer_path(@volunteer, @volunteer_customer), method: :delete, date: {confirm: "ボランティアをキャンセルしますか？"}, class: "btn btn-outline-primary" %>
-            <div class="btn btn-outline-primary">ボランティア決定</div>
-          <!--これから申し込む場合-->
-          <% elsif current_customer %>
-            <% if @apply %>
-              <%= link_to "申し込みを取り消す", public_volunteer_apply_path(@volunteer, @apply), method: :delete, date: {confirm: "このボランティアへ申し込みを取り消しますか？"}, class: "btn btn-outline-primary" %>
-            <% else %>
-              <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
-            <% end %>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">実施場所</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.place %>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">参加するメリット</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.merit %>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">必要物品</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.necessary_item %>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">注意点</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.important_point %>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3">
+            <p class="btn btn-light">コメント</p>
+          </div>
+          <div class="col-9">
+            <%= @volunteer.comment %>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="frame-slider" id="slider">
+          <% @volunteer.images.each do |image| %>
+            <%= image_tag image, :size => '100x100', format: "jpg" %>
           <% end %>
         </div>
-      <% end %>
+  
+        <!--チャット小ルーム-->
+          <div class="open-window off" id="chatRoom">
+            <%= render partial: 'recruiter/volunteers/chat', locals: {customer: @customer,volunteer: @volunteer, message: @message, messages: @messages, room: @room, recruiter: @recruiter} %>
+          </div>
+          <!--ここまでチャット-->
+  
         </div>
-      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-8"></div>
+      <div class="col-4">
+        <div class="row">
+          <!--チャット表示、非表示ボタン-->
+          <div class="col-6 text-center">
+              <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
+                チャット
+              </button>
+          </div>
+  
+        <% if recruiter_signed_in?  %>
+          <div class="col-6 text-center">
+          <% if current_recruiter.id == @volunteer.recruiter.id %>
+             <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
+          <% end %>
+        <% end %>
+  
+        <% if customer_signed_in? %>
+            <!--ボランティア登録されている場合-->
+            <% if @volunteer.customer_volunteer_in?(current_customer) %>
+              <%#= link_to "ボランティアをキャンセルする", public_volunteer_volunteer_customer_path(@volunteer, @volunteer_customer), method: :delete, date: {confirm: "ボランティアをキャンセルしますか？"}, class: "btn btn-outline-primary" %>
+              <div class="btn btn-outline-primary">ボランティア決定</div>
+            <!--これから申し込む場合-->
+            <% else %>
+              <% if @volunteer.applies.include?(customer_id: current_customer.id) %>
+                <%= link_to "申し込みを取り消す", public_volunteer_apply_path(@volunteer, @apply), method: :delete, date: {confirm: "このボランティアへ申し込みを取り消しますか？"}, class: "btn btn-outline-primary" %>
+              <% else %>
+                <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
+              <% end %>
+            <% end %>
+        <% end %>
+  
+          </div>
+        </div>
+    </div>
   </div>
-</div>
+  </div>
 </div>

@@ -15,7 +15,7 @@ class Public::AppliesController < ApplicationController
     @apply.destroy!
     @volunteer = Volunteer.find(params[:volunteer_id])
     flash[:notice] = "加入申請を取り消しました"
-    redirect_to recrutier_volunteer_applies_path(@volunteer)
+    redirect_to public_volunteer_applies_path(@volunteer)
   end
 
   private

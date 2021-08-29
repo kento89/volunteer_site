@@ -1,4 +1,5 @@
 class Recruiter::RecruitersController < ApplicationController
+  before_action :authenticate_recruiter!
 
   def show
     @recruiter = Recruiter.find(current_recruiter.id)
