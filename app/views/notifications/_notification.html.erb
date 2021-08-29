@@ -13,7 +13,9 @@
       <% end %>
     </div>
     <div class="col-2">
+      <%= link_to (recruiter_customer_path(n.message.customer)) do %>
         <%= n.message.customer.last_name %>
+      <% end %>
     </div>
     <div class="col-5">
       <%= n.message.message %>
