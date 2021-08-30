@@ -92,15 +92,13 @@ li{
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
+  text-shadow: 30px 30px 30px #ffffff ,
+  0px 0px 20px #f8f9fa,
+  0px 0px 40px #f8f9fa,
+  0px 0px 60px #f8f9fa,
+  0px 0px 100px #f8f9fa;
+  
   }
-
-  h2{
-    text-shadow: 30px 30px 30px #ffffff ,
-    0px 0px 20px #f8f9fa,
-    0px 0px 40px #f8f9fa,
-    0px 0px 60px #f8f9fa,
-    0px 0px 100px #f8f9fa;
-}
 
 .nav-item{
   margin-right: 10px;

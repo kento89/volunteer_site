@@ -1,7 +1,22 @@
-<div class="about-image">   
+<div class="about-image">
     <div class="container mt-5 mb-5">
         <div class="text-center carender-image">
             <div id="calendar"></div>
+        </div>
+        <div class="text-center">
+            <h2 class="mb-5">申込済みボランティア一覧</h2>
+            <% @applis.each do |app| %>
+                <div class="apply_volunteer border-bottom row">
+                    <div class="col-lg-5">
+                        <p class="lead">ボランティア日時</p>
+                        <%= l app.volunteer.time, format: :short %>開始
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="lead app_volunteer_name">ボランティア名</p>
+                        <%= link_to app.volunteer.name, recruiter_volunteer_path(app.volunteer) %>
+                    </div>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

@@ -3,9 +3,9 @@
     <div class="container">
       <%= link_to image_tag("logomain.png", width: 67), root_path, class: "rounded-circle" %>
       <% if customer_signed_in? %>
-        <div class="ml-5"><%= current_customer.last_name %>様</div>
+        <div class="header-name"><%= current_customer.last_name %>様</div>
       <% elsif recruiter_signed_in? %>
-        <div class="ml-5"><%= current_recruiter.last_name %>様</div>
+        <div class="header-name"><%= current_recruiter.last_name %>様</div>
       <% end %>
       <!--phoneサイズはハンバーガーメニュー-->
       <div class="hamburger-menu">
@@ -27,9 +27,9 @@
             <% else %>
               <li><%= link_to "トップページ", root_path %></li>
               <li><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
+              <li><%= link_to "ボランティア募集", homes_about_path %></li>
               <li><%= link_to "新規登録", new_customer_registration_path %></li>
               <li><%= link_to "ログイン", new_customer_session_path %></li>
-              <li><%= link_to "募集人", homes_about_path %></li>
             <% end %>
           </ul>
         </div>
@@ -50,9 +50,9 @@
         <% else %>
           <li class="nav-item mr-2"><%= link_to "トップページ", root_path, class: "button" %></li>
           <li class="nav-item mr-2"><%= link_to "ボランティア一覧", recruiter_volunteers_path, class: "button" %></li>
+          <li class="nav-item mr-2"><%= link_to "ボランティア募集", homes_about_path, class: "button" %></li>
           <li class="nav-item mr-2"><%= link_to "新規登録", new_customer_registration_path, class: "button" %></li>
           <li class="nav-item mr-2"><%= link_to "ログイン", new_customer_session_path, class: "button" %></li>
-          <li class="nav-item mr-2"><%= link_to "募集人", homes_about_path, class: "button" %></li>
         <% end %>
       </ul>
     </div>
