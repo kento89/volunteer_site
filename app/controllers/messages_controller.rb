@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
     end
     @messages = @room.messages
-    render "recruiter/volunteers/create"
+    redirect_to room_path(@volunteer.room)
 
   end
 

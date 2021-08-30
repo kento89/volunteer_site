@@ -1,26 +1,26 @@
-<div class="row text-center border-bottom mt-5 mb-5">
-  <h5 class="col-3">ボランティア名</h5>
-  <h5 class="col-2">チャット相手</h5>
-  <h5 class="col-5">メッセージ内容</h5>
-  <h5 class="col-2"></h5>
+<div class="row text-center border-bottom mt-5 mb-5 about_notification">
+  <h5 class="col-lg-3">ボランティア名</h5>
+  <h5 class="col-lg-2">チャット相手</h5>
+  <h5 class="col-lg-5">メッセージ内容</h5>
+  <h5 class="col-lg-2"></h5>
 </div>
 
 <% notification.each do |n| %>
-  <div class="row text-center mb-5">
-    <div class="col-3">
+  <div class="row text-center mb-5 notification_index">
+    <div class="col-lg-3">
       <%= link_to (recruiter_volunteer_path(n.message.room.volunteer)) do %>
         <%= n.message.room.volunteer.name %>
       <% end %>
     </div>
-    <div class="col-2">
+    <div class="col-lg-2">
       <%= link_to (recruiter_customer_path(n.message.customer)) do %>
         <%= n.message.customer.last_name %>
       <% end %>
     </div>
-    <div class="col-5">
+    <div class="col-lg-5 notification_comment">
       <%= n.message.message %>
     </div>
-    <div class="col-2">
+    <div class="col-lg-2 notification_button">
       <%= link_to '既読にする', notification_path(n.id), method: :patch, class: "button" %>
     </div>
   </div>

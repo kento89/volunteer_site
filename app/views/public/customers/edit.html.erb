@@ -12,7 +12,7 @@
       <%= form_with model: @customer, url: '/public/customers', method: :patch, local: true do |f| %>
       <%#= form_with model: @customer, url:'/public/customers', local:true do |f| %>
     <div class="row">
-      <div class="col-4">
+      <div class="col-lg-4 edit_image">
         <% if @customer.image.attached? %>
           <%= image_tag @customer.image, :size => '250x250', format: "jpg", fallback: "no-image.jpg", class: "img-fit rounded-circle" %>
         <% else %>
@@ -23,55 +23,57 @@
           <p>アイコンを編集する</p>
           <%= f.file_field :image %>
         </div>
-        <div class="mt-4"><%= f.text_field :comment, autofocus: true, class: "form-control input-lg" %></div>
+        <div class="mt-lg-4"><%= f.text_field :comment, autofocus: true, class: "form-control input-lg" %></div>
       </div>
-      <div class="col-8">
+      <div class="col-lg-8">
         <div class="field row">
-          <p class="col-4">名前</p>
-          <div class="col-8 row">
-            <div class="col-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
-            <div class="col-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
+          <p class="col-lg-4">名前</p>
+          <div class="col-lg-8 row">
+            <div class="col-lg-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
+            <div class="col-lg-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
           </div>
         </div>
         <div class="field row">
-          <p class="col-4">フリガナ</p>
-          <div class="col-8 row">
-            <p class="col-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></p>
-            <p class="col-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></p>
+          <p class="col-lg-4">フリガナ</p>
+          <div class="col-lg-8 row">
+            <p class="col-lg-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></p>
+            <p class="col-lg-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></p>
           </div>
         </div>
         <div class="field row">
-          <p class="col-4">郵便番号</p>
-          <p class="col-4">
+          <p class="col-lg-4">郵便番号</p>
+          <p class="col-lg-4">
           <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
-          <p class="col-4">住所</p>
-          <p class="col-8">
+          <p class="col-lg-4">住所</p>
+          <p class="col-lg-8">
           <%= f.text_field :address, autofocus: true, class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
-          <p class="col-4">電話番号</p>
-          <p class="col-8">
+          <p class="col-lg-4">電話番号</p>
+          <p class="col-lg-8">
           <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
-          <p class="col-4">EMAIL</p>
-          <p class="col-8">
+          <p class="col-lg-4">EMAIL</p>
+          <p class="col-lg-8">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg" %>
           </p>
         </div>
         <div class="field row">
-          <p class="col-4">ボランティア経験</p>
-          <p class="col-8">
+          <p class="col-lg-4">ボランティア経験</p>
+          <p class="col-lg-8">
             <%= f.radio_button :experience,  "経験あり", style: 'display: inline-block;'%><%= f.label :experience, "あり" %>
             <%= f.radio_button :experience,  "経験なし", style: 'display: inline-block;'%><%= f.label :experience, "なし" %>
           </p>
         </div>
-      <%= f.submit "変更を保存", class: "button" %>
+        <div class="submit-button">
+          <%= f.submit "変更を保存", class: "button" %>
+        </div>
       </div>
     </div>
       <% end %>

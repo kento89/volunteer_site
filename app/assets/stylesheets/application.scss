@@ -21,16 +21,13 @@
 
 body{
   background-color: #EEFFFF;
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
 }
 
 
 .navbar{
   display: flex;
   flex-dirextion: row;
-}
-
-body{
-  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", seri
 }
 
 .header-bg{
@@ -92,15 +89,13 @@ body{
 }
 
 // ログイン画面の写真
-.back-image{
-  width: 100%;
-  height: auto;
-}
-// サインアップ画面の写真
-.back-image-signup{
-  width: 100%;
-  height: auto;
-}
+// .back-image{
+//   width: 100%;
+// }
+// // サインアップ画面の写真
+// .back-image-signup{
+//   width: 100%;
+// }
 
 // ボランティア一覧のbackground
 .volunteer-bg{
@@ -188,4 +183,257 @@ body{
   background-size: cover;
   background-position: center;
   border-radius: 50%;
+}
+
+// volunteer詳細へ
+.search{
+  text-align: right;
+}
+
+.volunteer_about{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.volunteer_about_litle{
+    margin-right: 10px;
+  }
+
+.volunteer_explanation{
+  margin: 50px auto;
+}
+
+.go_volunteer_show{
+  margin-top: 290px;
+}
+
+// customer_showの吹き出し
+.my_comment {
+  position: relative;
+  margin: 2em 0 2em 40px;
+  padding: 15px;
+  background: #fff0c6;
+  border-radius: 30px;
+}
+
+.my_comment:before {
+  content: "";
+  position: absolute;
+  top: -38px;
+  width: 13px;
+  height: 12px;
+  bottom: 0;
+  background: #fff0c6;
+  border-radius: 50%;
+}
+
+.my_comment:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  width: 20px;
+  height: 18px;
+  bottom: 10px;
+  background: #fff0c6;
+  border-radius: 50%;
+}
+
+.my_comment p {
+  margin: 0;
+  padding: 0;
+}
+
+.volunteer_edit{
+  margin: 20px auto;
+}
+
+.apply_button{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.phone-chat{
+  display: none;
+}
+
+// レスポンシブ対応　max-width:768px以下
+@media screen and(max-width: 768px){
+  body{
+    with: 100%;
+  }
+
+  // トップページ
+  .top_visual{
+    height: 1100px;
+    margin-bottom: 200px;
+    background-image: image-url('sakura.jpg');
+    background-size: cover;
+    background-position: right;
+  }
+
+  .nav-item{
+    margin-bottom: 20px;
+  }
+
+  .main-text{
+    margin-top: 100px;
+  }
+
+  // signin,signupページ
+  .field{
+    margin-bottom: 30px;
+  }
+
+  .login-form{
+    margin-bottom: 50px;
+  }
+
+  .signup-form{
+    margin-bottom: 130px;
+  }
+
+// ボランティアindexページ
+  .search{
+    text-align: center;
+  }
+
+  .volunteer_about{
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .volunteer_about_litle{
+    margin-bottom: 5px;
+  }
+
+  .frame{
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .volunteer_explanation{
+    text-align: center;
+  }
+
+  .go_volunteer_show{
+    text-align: center;
+    padding: 0 240px;
+    margin: 20px;
+  }
+
+  .paginate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // ボランティアshowページ
+  .volunteer_show{
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .frame-slider{
+    margin-top: 50px;
+  }
+
+  .slick-list img{
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+  }
+
+  .chat-button{
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .customer_show{
+    margin-bottom: 30px;
+  }
+
+  .show_image{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  // ボランティアeditページ
+  .my_comment:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 350px;
+    width: 20px;
+    height: 18px;
+    bottom: 10px;
+    background: #fff0c6;
+    border-radius: 50%;
+    }
+
+  .customer_volunteer_index{
+    text-align: center;
+    margin: 50px auto;
+  }
+
+  .submit-button{
+    text-align: center;
+    margin: 40px;
+  }
+
+  .edit_image{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .volunteer_edit{
+    padding-bottom: 30px;
+  }
+
+  // 通知一覧ページ
+  .about_notification{
+    display: none;
+  }
+
+  .notification_index{
+    margin: 50px;
+  }
+
+  .notification_comment{
+    margin-bottom: 20px;
+  }
+
+  .notification_button{
+    padding-right: 40%;
+    padding-left: 40%;
+  }
+
+  // リクルーターshow
+  .recruiter_volunteer_index{
+    margin: 50px;
+  }
+
+  .apply_index{
+    text-align: center;
+  }
+
+  .apply_images{
+    text-align: center;
+  }
+  
+  .apply_button{
+    padding-right: 40%;
+    padding-left: 40%;
+    margin: 30px;
+  }
+  
+  .pc-chat{
+    display: none;
+  }
+  
+  .phone-chat{
+    display: block;
+    margin: 31px auto;
+  }
 }

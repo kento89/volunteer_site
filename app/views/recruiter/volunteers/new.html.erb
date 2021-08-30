@@ -11,106 +11,107 @@
     <h2 class="text-center mt-3 mb-3">ボランティア登録</h2>
     <%= form_with model: @volunteer, url: {controller: 'volunteers', action: 'create'}, local:true do |f| %>
       <div class="row">
-        <div class="col-8">
-            <div class="row">
-              <div class="col-4">
+        <div class="col-lg-8">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>ボランティア名</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :name, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>概要　※100文字以内</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :a_litle_explanation, class: "form-control input-lg" %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>説明</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :explanation, class: "form-control input-lg" %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>実施場所</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :place, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>実施日時</p>
               </div>
-              <div class="col-4 form-group">
+              <div class="col-lg-4 form-group">
                 <%= f.datetime_field :time, class: "form-control" %>
+                <%#= f.time_select :time, {:include_blank => true, :minute_step => 10}, class: 'form-control m-2' %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>募集人数</p>
               </div>
-              <div class="col-4 form-group">
+              <div class="col-lg-4 form-group">
                 <%= f.text_field :people, class: "form-control" %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>参加するメリット</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :merit, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>必要物品</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :necessary_item, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>注意点</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :important_point, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>コメント</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.text_field :comment, class: "form-control input-lg"  %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>募集締め切り日</p>
               </div>
-              <div class="col-4 form-group">
+              <div class="col-lg-4 form-group">
                 <%= f.date_field :limit, class: "form-control" %>
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
+            <div class="row volunteer_edit">
+              <div class="col-lg-4">
                 <p>ジャンル</p>
               </div>
-              <div class="col-8 form-group">
+              <div class="col-lg-8 form-group">
                 <%= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
               </div>
             </div>
           </div>
-  
-          <div class="col-4">
+
+          <div class="col-lg-4 volunteer_edit">
             <p>画像選択　※3枚以上投稿が必要です</p>
               <%= f.file_field :images, multiple: true %>
                 <%#= f.file_field :images, multipe: true do |i| %>

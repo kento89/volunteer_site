@@ -6,7 +6,11 @@
       <% if message.customer != nil %>
         <div class="row">
           <div class="col-2 image">
-            <tr><%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <%# if @customer.image.attached? %>
+              <tr><%= image_tag message.customer.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %></tr>
+            <%# else %>
+              <!--<p class="profile_image_chat rounded-circle"></p>-->
+            <%# end %>
             <td><%= message.customer.last_name %></td>
           </div>
           <div class="col-5 chat-space chat-left">
@@ -21,7 +25,11 @@
             <p class="message-right"><%= message.message %></p>
           </div>
           <div class="col-2 image">
-            <tr><%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <%# if @recruiter.image.attached? %>
+              <tr><%= image_tag message.recruiter.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %></tr>
+              <%# else %>
+              <!--<p class="profile_image_chat rounded-circle"></p>-->
+            <%# end %>
             <td><%= message.recruiter.last_name %></td>
           </div>
         </div>
@@ -39,7 +47,11 @@
       <% if message.customer != nil %>
         <div class="row">
           <div class="col-2 image">
-            <tr><%= attachment_image_tag @customer, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <%#if @customer.image.attached? %>
+              <tr><%= image_tag message.customer.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %></tr>
+            <%# else %>
+              <!--<p class="profile_image_chat rounded-circle"></p>-->
+            <%# end %>
             <td><%= message.customer.last_name %></td>
           </div>
           <div class="col-5 chat-space chat-left">
@@ -54,7 +66,11 @@
             <p class="message-right"><%= message.message %></p>
           </div>
           <div class="col-2 image">
-            <tr><%= attachment_image_tag @recruiter, :fill, 10, 10, size: 15*15, fallback: "logo.png" %></tr>
+            <%# if @recruiter.image.attached? %>
+              <tr><%= image_tag message.recruiter.image, :size => '50x50', format: "jpg", class: "img-fit rounded-circle" %></tr>
+              <%# else %>
+              <!--<p class="profile_image_chat rounded-circle"></p>-->
+            <%# end %>
             <td><%= message.recruiter.last_name %></td>
           </div>
         </div>
