@@ -7,7 +7,35 @@
       <% elsif recruiter_signed_in? %>
         <div class="ml-5"><%= current_recruiter.last_name %>様</div>
       <% end %>
-      <ul class="navbar-nav flex-row navbar">
+      <!--phoneサイズはハンバーガーメニュー-->
+      <div class="hamburger-menu">
+        <input type="checkbox" id="menu-btn-check">
+        <label for="menu-btn-check" class="menu-btn"><span></span></label>
+        <div class="menu-content text-center">
+          <ul>
+            <% if customer_signed_in? %>
+                <li><%= link_to "マイページ", public_customers_path(:id) %></li>
+                <li><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
+                <li><%= link_to "ボランティア予定", volunteer_customers_path %></li>
+                <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <% elsif recruiter_signed_in? %>
+                <li><%= link_to "マイページ", recruiter_recruiter_path(:id) %></li>
+                <li><%= link_to "ボランティア一覧",recruiter_volunteers_path %></li>
+                <li><%= link_to "新規投稿",new_recruiter_volunteer_path %></li>
+                <li><% if  0 < Notification.where(visited_id: current_recruiter.id, checked: false).count %><%= link_to "未読通知#{Notification.where(visited_id: current_recruiter.id, checked: false).count}件", notifications_path %><% else %><%= link_to "通知無し",notifications_path %><% end %></li>
+                <li><%= link_to "ログアウト", destroy_recruiter_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "トップページ", root_path %></li>
+              <li><%= link_to "ボランティア一覧", recruiter_volunteers_path %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path %></li>
+              <li><%= link_to "ログイン", new_customer_session_path %></li>
+              <li><%= link_to "募集人", homes_about_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <!--pcサイズならこちら-->
+      <ul class="navbar-nav flex-row navbar pc-nav">
         <% if customer_signed_in? %>
             <li class="nav-item"><%= link_to "マイページ", public_customers_path(:id), class: "button" %></li>
             <li class="nav-item"><%= link_to "ボランティア一覧", recruiter_volunteers_path, class: "button" %></li>
