@@ -111,7 +111,7 @@ body{
 // エラーメッセージ
 .error-messages{
   color: white;
-  background-color: #FF3333;
+  background-color: #FFBBFF;
 }
 
 // サクセスメッセージ
@@ -272,6 +272,21 @@ body{
     justify-content: center;
     align-items: center;
   }
+  
+.apply_volunteer{
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+.header-name{
+  margin-right: 400px;
+}
+
+.about_recruiter{
+  margin-bottom: 50px;
+}
+
+
 
 // レスポンシブ対応　max-width:768px以下
 @media screen and(max-width: 768px){
@@ -562,9 +577,17 @@ body{
   .menu-content{
     display: block;
     & li :hover{
-      background-color: green;
+      background-color: #AEFFBD;
     }
   }
-
+  
+  .app_volunteer_name{
+    margin-top: 40px;
+  }
+  
+  .about_recruiter{
+    margin-bottom: 50px;
+    padding: 20%;
+  }
 
 }

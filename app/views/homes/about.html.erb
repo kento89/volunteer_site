@@ -1,15 +1,15 @@
-<div class="container mt-5 mb-5">
+<div class="container">
   <h2 class="text-center mt-5 mb-5">ボランティアを募集する</h2>
-  <div class="row">
-    <div class="col-6 border-right">
+  <div class="row about_recruiter">
+    <div class="col-lg-6">
       <h4 class="bg-light mb-5 text-center">すでに募集人登録済みの方はこちら</h4>
-      <div class="text-center">
+      <div class="text-center about_recruiter">
         <%= link_to "募集人登録済み", new_recruiter_session_path, class: "button" %>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6">
       <h4 class="bg-light mb-5 text-center">まだ募集人登録していない方はこちら</h4>
-      <div class="text-center">
+      <div class="text-center about_recruiter">
         <%= link_to "募集人登録する", new_recruiter_registration_path, class: "button" %>
       </div>
     </div>
