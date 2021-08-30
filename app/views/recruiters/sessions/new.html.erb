@@ -3,7 +3,7 @@
   <div class="container">
       <h2 class="text-center mt-5 mb-5">Log in</h2>
       <div class="row">
-        <div class="col-6 text-center">
+        <div class="col-lg-6 text-center login-form">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
               <%= f.label :email %><br />
@@ -27,7 +27,7 @@
             </div>
           <% end %>
         </div>
-        <div class="col-6 text-center">
+        <div class="col-lg-6 text-center signup-form">
           <p>募集人登録をされていない方</p>
           <%= render "recruiters/shared/links" %>
         </div>

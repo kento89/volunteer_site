@@ -6,75 +6,73 @@
     <%= render "customers/shared/error_messages", resource: resource %>
   </div>
       <div class="row">
-        <div class="col-4">
-
+        <div class="col-lg-4">
           <div class="field">
+            <p>写真登録</p>
             <%= f.file_field :image %>
           </div>
 
           <div class="field">
-            <%= f.label :comment, 'コメント', class: "text_center" %>
+            <p>コメント</p>
             <div class="mt-4"><%= f.text_field :comment, autofocus: true, class: "form-control input-lg" %></div>
           </div>
-
         </div>
-        <div class="col-8">
-
+        <div class="col-lg-8">
           <div class="field row">
-            <p class="col-4">名前</p>
-            <div class="col-8 row">
-              <div class="col-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
-              <div class="col-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
+            <p class="col-lg-4">名前</p>
+            <div class="col-lg-8 row">
+              <div class="col-lg-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg" %></div>
+              <div class="col-lg-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg" %></div>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">フリガナ</p>
-            <div class="col-8 row">
-              <div class="col-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></div>
-              <div class="col-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></div>
+            <p class="col-lg-4">フリガナ</p>
+            <div class="col-lg-8 row">
+              <div class="col-lg-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg" %></div>
+              <div class="col-lg-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg" %></div>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">郵便番号</p>
-            <div class="col-8">
+            <p class="col-lg-4">郵便番号</p>
+            <div class="col-lg-8">
               <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg mt-2" %>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">住所</p>
-            <div class="col-8">
+            <p class="col-lg-4">住所</p>
+            <div class="col-lg-8">
               <%= f.text_field :address, autofocus: true, class: "form-control input-lg mt-2" %>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">電話番号</p>
-            <div class="col-8">
+            <p class="col-lg-4">電話番号</p>
+            <div class="col-lg-8">
               <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg mt-2" %>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">メールアドレス</p>
-            <div class="col-8">
+            <p class="col-lg-4">メールアドレス</p>
+            <div class="col-lg-8">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg mt-2" %>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">ボランティア経験</p>
-            <div class="col-8">
+            <p class="col-lg-4">ボランティア経験</p>
+            <div class="col-lg-8">
               <%= f.radio_button :experience,  "経験あり", style: 'display: inline-block;'%><%= f.label :experience, "あり" %>
               <%= f.radio_button :experience,  "経験なし", style: 'display: inline-block;'%><%= f.label :experience, "なし" %>
             </div>
           </div>
 
           <div class="field row">
-            <p class="col-4">パスワード</p>
-            <div class="col-8">
+            <p class="col-lg-4">パスワード</p>
+            <div class="col-lg-8">
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> 文字以上)</em>
               <% end %><br />
@@ -83,8 +81,8 @@
           </div>
 
           <div class="field row">
-            <div class="col-4">パスワード確認</div>
-            <div class="col-8">
+            <div class="col-lg-4">パスワード確認</div>
+            <div class="col-lg-8">
               <%= f.label :password_confirmation, 'パスワード確認' %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-lg" %>
             </div>
