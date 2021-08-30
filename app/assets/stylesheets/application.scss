@@ -205,6 +205,7 @@ body{
 
 .go_volunteer_show{
   margin-top: 290px;
+  text-align: center;
 }
 
 // customer_showの吹き出し
@@ -265,6 +266,12 @@ body{
 .menu-content{
   display: none;
 }
+
+.paginate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 // レスポンシブ対応　max-width:768px以下
 @media screen and(max-width: 768px){

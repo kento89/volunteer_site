@@ -1,6 +1,8 @@
 // Place all the styles related to the recruiter/Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 画像を選択する際に表示
 #imgPreviewField{
   img{
     height: 100px;
@@ -11,13 +13,6 @@
   flex-wrap        : wrap;
 }
 
-body{
-    padding-top: 4px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    text-align: center;
-}
-
 // 一覧の写真
 .frame{
    position: relative;
@@ -25,7 +20,7 @@ body{
 // 詳細の写真
  .frame-slider{
   margin-top: 100px;
-  
+
  }
 
 .slick-list img{
@@ -33,7 +28,7 @@ body{
   height: 20vw;
   object-fit: cover;
 }
- 
+
 
 // チャット小ページを表示
 .open-window{
