@@ -75,7 +75,7 @@ $(function () {
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
-                eventColor: '#63ceef',
+                eventColor: '#33FF00',
                 //イベントの文字色を変える
                 eventTextColor: '#000000',
             });
