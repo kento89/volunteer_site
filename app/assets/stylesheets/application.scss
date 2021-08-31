@@ -105,7 +105,7 @@ body{
 // カレンダーのサイズ
 #calendar{
   height: 1000px;
-  width: 1000px;
+  width: 80vw;
 }
 
 // エラーメッセージ
@@ -125,8 +125,8 @@ body{
 
 // logoの編集
 .btn-gradient {
-  width: 280px;
-  font-size: 30px;
+  width: 240px;
+  font-size: 26px;
   color: blue;
   padding-top: 15px;
   background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
@@ -272,7 +272,7 @@ body{
     justify-content: center;
     align-items: center;
   }
-  
+
 .apply_volunteer{
   margin-bottom: 50px;
   padding-bottom: 20px;
@@ -288,8 +288,8 @@ body{
 
 
 
-// レスポンシブ対応　max-width:768px以下
-@media screen and(max-width: 768px){
+// レスポンシブ対応　max-width:1024px以下※トップページのレイアウトが崩れるため
+@media screen and(max-width: 1024px){
   body{
     with: 100%;
   }
@@ -350,8 +350,8 @@ body{
 
   .go_volunteer_show{
     text-align: center;
-    padding: 0 240px;
-    margin: 20px;
+    margin: 40px auto;
+    width: 50%;
   }
 
   .paginate{
@@ -573,18 +573,18 @@ body{
   #menu-btn-check:checked ~ .menu-content {
     left: 0;/*メニューを画面内へ*/
   }
-  
+
   .menu-content{
     display: block;
     & li :hover{
       background-color: #AEFFBD;
     }
   }
-  
+
   .app_volunteer_name{
     margin-top: 40px;
   }
-  
+
   .about_recruiter{
     margin-bottom: 50px;
     padding: 20%;
