@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
     end
     @messages = @room.messages
     render "recruiter/volunteers/create"
-
   end
 
   private

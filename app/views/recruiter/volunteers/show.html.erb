@@ -14,21 +14,21 @@
             <h2><%= @volunteer.name %></h2>
           </div>
           <div class="col-lg-2 volunteer_show volunteer_show_time">
-            <p class="btn btn-light">実施日</p>
+            <p class="bg-light">実施日</p>
             <p><%= l @volunteer.time, format: :short %></p>
           </div>
           <div class="col-lg-2 volunteer_show volunteer_show_people">
-            <p class="btn btn-light">募集人数</p>
+            <p class="bg-light">募集人数</p>
             <p class="text-center"><%= @volunteer.people %>名</p>
           </div>
           <div class="col-lg-3 volunteer_show volunteer_show_limit">
-            <p class="btn btn-light">募集期限</p>
-            <p><%= l @volunteer.limit, format: :long %> まで</p>
+            <p class="bg-light">募集期限</p>
+            <p><%= l @volunteer.limit, format: :short %> まで</p>
           </div>
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_explanation">
           <div class="col-lg-3">
-            <p class="btn btn-light">説明</p>
+            <p class="bg-light">説明</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.explanation %>
@@ -36,7 +36,7 @@
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_place">
           <div class="col-lg-3">
-            <p class="btn btn-light">実施場所</p>
+            <p class="bg-light">実施場所</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.place %>
@@ -44,7 +44,7 @@
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_merit">
           <div class="col-lg-3">
-            <p class="btn btn-light">参加するメリット</p>
+            <p class="bg-light">参加するメリット</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.merit %>
@@ -52,7 +52,7 @@
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_necessary_item">
           <div class="col-lg-3">
-            <p class="btn btn-light">必要物品</p>
+            <p class="bg-light">必要物品</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.necessary_item %>
@@ -60,7 +60,7 @@
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_important_point">
           <div class="col-lg-3">
-            <p class="btn btn-light">注意点</p>
+            <p class="bg-light">注意点</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.important_point %>
@@ -68,7 +68,7 @@
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_comment">
           <div class="col-lg-3">
-            <p class="btn btn-light">コメント</p>
+            <p class="bg-light">コメント</p>
           </div>
           <div class="col-lg-9">
             <%= @volunteer.comment %>
@@ -99,9 +99,11 @@
               <button type="button" id="btnInvisible" value="チャット" class="btn btn-outline-primary">
                 チャット
               </button>
+              <p>※個人チャットではありません</p>
           </div>
           <div class="phone-chat">
             <%= link_to "チャット", room_path(@volunteer.room), class: "btn btn-outline-primary" %>
+            <p>※個人チャットではありません</p>
           </div>
 
         <% if recruiter_signed_in?  %>

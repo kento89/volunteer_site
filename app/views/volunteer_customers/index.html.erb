@@ -7,13 +7,18 @@
             <h2 class="mb-5">申込済みボランティア一覧</h2>
             <% @applis.each do |app| %>
                 <div class="apply_volunteer border-bottom row">
-                    <div class="col-lg-5">
-                        <p class="lead">ボランティア日時</p>
-                        <%= l app.volunteer.time, format: :short %>開始
+                    <div class="col-lg-4 app_volunteer_image">
+                        <% app.volunteer.images.first(1).each do |image| %>
+                           <%= image_tag image, :size => '150x100', format: "jpg" %>
+                         <% end %>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-lg-4">
                         <p class="lead app_volunteer_name">ボランティア名</p>
                         <%= link_to app.volunteer.name, recruiter_volunteer_path(app.volunteer) %>
+                    </div>
+                    <div class="col-lg-4">
+                        <p class="lead">ボランティア日時</p>
+                        <%= l app.volunteer.time, format: :short %>開始
                     </div>
                 </div>
             <% end %>
