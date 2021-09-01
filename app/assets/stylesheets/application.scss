@@ -299,11 +299,45 @@ body{
   margin-top: 30px;
 }
 
+.customer_comment{
+  height: 300px;
+}
+
 .bg-light{
   text-align: center;
   padding-top: 6px;
 }
 
+.explanation-form{
+  width: 100%;
+  height: 150px;
+  word-wrap: normal;
+}
+
+.a_litle_explanation-form{
+  width: 100%;
+  height: 70px;
+}
+
+.merit-form{
+  width: 100%;
+  height: 70px;
+}
+
+.necessary_item-form{
+  width: 100%;
+  height: 70px;
+}
+
+.important_point-form{
+  width: 100%;
+  height: 120px;
+}
+
+.comment-form{
+  width: 100%;
+  height: 150px;
+}
 
 // レスポンシブ対応　max-width:1024px以下※トップページのレイアウトが崩れるため
 @media screen and(max-width: 1024px){

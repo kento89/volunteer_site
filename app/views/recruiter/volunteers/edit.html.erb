@@ -17,7 +17,7 @@
                 <p>ボランティア名</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :name, class: "form-control input-lg"  %>
+                <%= f.text_field :name, class: "form-control input-lg", required: true  %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -25,7 +25,7 @@
                 <p>概要　※100文字以内</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :a_litle_explanation, class: "form-control input-lg" %>
+                <%= f.text_field :a_litle_explanation, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -33,7 +33,7 @@
                 <p>説明</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :explanation, class: "form-control input-lg" %>
+                <%= f.text_field :explanation, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -41,7 +41,7 @@
                 <p>実施場所</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :place, class: "form-control input-lg"  %>
+                <%= f.text_field :place, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -49,7 +49,7 @@
                 <p>実施日時</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.datetime_field :time, class: "form-control" %>
+                <%= f.datetime_field :time, class: "form-control", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -57,7 +57,7 @@
                 <p>募集人数</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.text_field :people, class: "form-control" %>
+                <%= f.text_field :people, class: "form-control", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -65,7 +65,7 @@
                 <p>参加するメリット</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :merit, class: "form-control input-lg"  %>
+                <%= f.text_field :merit, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -73,7 +73,7 @@
                 <p>必要物品</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :necessary_item, class: "form-control input-lg"  %>
+                <%= f.text_field :necessary_item, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -81,7 +81,7 @@
                 <p>注意点</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :important_point, class: "form-control input-lg"  %>
+                <%= f.text_field :important_point, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -89,7 +89,7 @@
                 <p>コメント</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :comment, class: "form-control input-lg"  %>
+                <%= f.text_field :comment, class: "form-control input-lg", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -97,7 +97,7 @@
                 <p>募集締め切り日</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.date_field :limit, class: "form-control" %>
+                <%= f.date_field :limit, class: "form-control", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -105,7 +105,7 @@
                 <p>ジャンル</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択" %>
+                <%= f.select :genre, options_for_select(Volunteer.genres.keys), include_blank: "ジャンル選択", required: true %>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@
                 <p>ボランティア名</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :name, class: "form-control input-lg"  %>
+                <%= f.text_field :name, class: "form-control input-lg", required: true, placeholder: '例：町内清掃' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -25,7 +25,7 @@
                 <p>概要　※100文字以内</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :a_litle_explanation, class: "form-control input-lg" %>
+                <%= f.text_field :a_litle_explanation, class: "form-control input-lg a_litle_explanation-form", required: true, placeholder: '例：栄駅前の大規模な清掃活動を行います' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -33,7 +33,7 @@
                 <p>説明</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :explanation, class: "form-control input-lg" %>
+                <%= f.text_field :explanation, class: "form-control input-lg explanation-form", required: true, placeholder: 'ボランティアの説明を記入してください' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -41,7 +41,7 @@
                 <p>実施場所</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :place, class: "form-control input-lg"  %>
+                <%= f.text_field :place, class: "form-control input-lg", required: true, placeholder: '例：三重県津市栄町駅前付近' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -49,7 +49,7 @@
                 <p>実施日時</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.datetime_field :time, class: "form-control" %>
+                <%= f.datetime_field :time, class: "form-control", required: true %>
                 <%#= f.time_select :time, {:include_blank => true, :minute_step => 10}, class: 'form-control m-2' %>
               </div>
             </div>
@@ -58,7 +58,7 @@
                 <p>募集人数</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.text_field :people, class: "form-control" %>
+                <%= f.text_field :people, class: "form-control", required: true, placeholder: '例：７' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -66,7 +66,7 @@
                 <p>参加するメリット</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :merit, class: "form-control input-lg"  %>
+                <%= f.text_field :merit, class: "form-control input-lg merit-form", required: true, placeholder: '例：グループでの清掃活動を通して新しい出会いがあります' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -74,7 +74,7 @@
                 <p>必要物品</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :necessary_item, class: "form-control input-lg"  %>
+                <%= f.text_field :necessary_item, class: "form-control input-lg necessary_item-form", required: true, placeholder: '例：水分 軍手 ゴミ袋' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -82,7 +82,7 @@
                 <p>注意点</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :important_point, class: "form-control input-lg"  %>
+                <%= f.text_field :important_point, class: "form-control input-lg important_point-form", required: true, placeholder: '例：当日は暑くなることが予測されますのでこまめな水分補給を心がけましょう' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -90,7 +90,7 @@
                 <p>コメント</p>
               </div>
               <div class="col-lg-8 form-group">
-                <%= f.text_field :comment, class: "form-control input-lg"  %>
+                <%= f.text_field :comment, class: "form-control input-lg comment-form", required: true, placeholder: '例：よろしくお願いします' %>
               </div>
             </div>
             <div class="row volunteer_edit">
@@ -98,7 +98,7 @@
                 <p>募集締め切り日</p>
               </div>
               <div class="col-lg-4 form-group">
-                <%= f.date_field :limit, class: "form-control" %>
+                <%= f.date_field :limit, class: "form-control", required: true %>
               </div>
             </div>
             <div class="row volunteer_edit">
