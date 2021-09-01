@@ -14,8 +14,8 @@
             <h2><%= @volunteer.name %></h2>
           </div>
           <div class="col-lg-2 volunteer_show volunteer_show_time">
-            <p class="bg-light">実施日</p>
-            <p><%= l @volunteer.time, format: :short %></p>
+            <p class="bg-light">実施日時</p>
+            <p><%= l @volunteer.time, format: :long %>開始</p>
           </div>
           <div class="col-lg-2 volunteer_show volunteer_show_people">
             <p class="bg-light">募集人数</p>
@@ -23,7 +23,7 @@
           </div>
           <div class="col-lg-3 volunteer_show volunteer_show_limit">
             <p class="bg-light">募集期限</p>
-            <p><%= l @volunteer.limit, format: :short %> まで</p>
+            <p class="show_time"><%= l @volunteer.limit, format: :short %> まで</p>
           </div>
         </div>
         <div class="row mt-4 volunteer_show volunteer_show_explanation">
