@@ -39,4 +39,6 @@ Rails.application.routes.draw do
   resource :messages, only: [:create]
   resources :notifications, only: [:index, :update]
   resources :volunteer_customers, only: [:index]
+  
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
 end
