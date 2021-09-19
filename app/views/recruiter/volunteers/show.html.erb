@@ -106,33 +106,33 @@
             <p>※個人チャットではありません</p>
           </div>
 
-        <% if recruiter_signed_in?  %>
-          <div class="col-lg-6 text-center">
-          <% if current_recruiter.id == @volunteer.recruiter.id %>
-             <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
-          <% end %>
-        <% end %>
-
-        <% if customer_signed_in? %>
-            <!--ボランティア登録されている場合-->
-            <% if @volunteer.customer_volunteer_in?(current_customer) %>
-              <%#= link_to "ボランティアをキャンセルする", public_volunteer_volunteer_customer_path(@volunteer, @volunteer_customer), method: :delete, date: {confirm: "ボランティアをキャンセルしますか？"}, class: "btn btn-outline-primary" %>
+            <% if recruiter_signed_in?  %>
               <div class="col-lg-6 text-center">
-                <div class="btn btn-success">ボランティア決定</div>
-              </div>
-            <!--これから申し込む場合-->
-            <% else %>
-              <% if @volunteer.applies.where(customer_id: current_customer.id).exists? %>
-                <div class="col-lg-6 text-center">
-                  <p class="btn btn-info">申し込み済み</p>
-                </div>
-              <% else %>
-                <div class="col-lg-6 text-center">
-                  <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
-                </div>
+              <% if current_recruiter.id == @volunteer.recruiter.id %>
+                 <%= link_to "編集する", edit_recruiter_volunteer_path(@volunteer), class: "btn btn-outline-primary" %>
               <% end %>
             <% end %>
-        <% end %>
+      
+            <% if customer_signed_in? %>
+                <!--ボランティア登録されている場合-->
+                <% if @volunteer.customer_volunteer_in?(current_customer) %>
+                  <%#= link_to "ボランティアをキャンセルする", public_volunteer_volunteer_customer_path(@volunteer, @volunteer_customer), method: :delete, date: {confirm: "ボランティアをキャンセルしますか？"}, class: "btn btn-outline-primary" %>
+                  <div class="col-lg-6 text-center">
+                    <div class="btn btn-success">ボランティア決定</div>
+                  </div>
+                <!--これから申し込む場合-->
+                <% else %>
+                  <% if @volunteer.applies.where(customer_id: current_customer.id).exists? %>
+                    <div class="col-lg-6 text-center">
+                      <p class="btn btn-info">申し込み済み</p>
+                    </div>
+                  <% else %>
+                    <div class="col-lg-6 text-center">
+                      <%= link_to "申し込む", public_volunteer_applies_path(@volunteer),method: :post, date: {confirm: "このボランティアへ申し込みを行いますか？"}, class: "btn btn-outline-primary" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            <% end %>
 
           </div>
         </div>
