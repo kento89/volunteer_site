@@ -343,25 +343,38 @@ body{
   text-align: center;
 }
 
-.gest_login{
-  text-align: center;
-  border-radius: 50%;
-  background-color: #6f42c152;
-  margin: 0 auto;
-  padding: 20px 10px;
-  width: 10vw;
-  -webkit-box-shadow: 0 5px 0 #6f42c12e;
-  box-shadow: 0 5px 0 #6610f269;
-  & p{
-    font-size: 18px;
+
+ .gest_login {
+   margin: 0 auto;
+   text-align: center;
+  width: 240px;
+  font-size: 26px;
+  padding-top: 15px;
+  background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
+  background-image: linear-gradient(-20deg, #adb3bd45 0%, #f8f9fa 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  &p {
+    background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
+    background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
+    background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
+    -webkit-background-clip: text;
   }
   &:hover {
-    -webkit-transform: translate(0, 3px);
-    transform: translate(0, 3px);
-    -webkit-box-shadow: 0 2px 0 #e6d900;
-    box-shadow: 0 2px 0 #6610f2d4;
+    border-radius: 5%;
+    background-image: linear-gradient(-20deg, #0062cc 0%, #f8f9fa 100%);
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    -webkit-transform: scale(1.1,1.1);
+  	-moz-transform: scale(1.15,1.15);
+  	-o-transform: scale(1.15,1.15);
+  	-ms-transform: scale(1.15,1.15);
+  	transform: scale(1.15,1.15);
   }
 }
+
+
+
 
 // a.btn--circle {
 //   border-radius: 50%;
@@ -735,9 +748,12 @@ body{
 
   .gest_login{
     margin-top: 150px;
+    border-radius: 5%;
+    width: 40vw;
   }
 
 }
+
 
 @media screen and(max-width: 425px){
 
@@ -761,6 +777,18 @@ body{
     height: 60px;
     width: 80vw;
   }
+  
+  .gest_login{
+    margin-top: 150px;
+    border-radius: 5%;
+    width: 60vw;
+  }
+  
+  #calendar{
+  height: 400px;
+  width: 90vw;
+}
+
 
 
 }
