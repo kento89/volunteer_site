@@ -8,7 +8,7 @@
       </div>
 
             <div class="field row">
-                <p class="col-lg-4 about-signup lead">名前</p>
+                <p class="col-lg-4 about-signup lead">名前<span class="required">※</span></p>
                 <div class="col-lg-8 row">
                   <div class="col-lg-6"><%= f.label :last_name, '姓' %><%= f.text_field :last_name, autofocus: true, class: "form-control input-lg", required: true, placeholder: '例：山田' %></div>
                   <div class="col-lg-6"><%= f.label :first_name, '名' %><%= f.text_field :first_name, autofocus: true, class: "form-control input-lg", required: true, placeholder: '例：太郎' %></div>
@@ -16,7 +16,7 @@
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">フリガナ</p>
+                <p class="col-lg-4 about-signup lead">フリガナ<span class="required">※</span></p>
                 <div class="col-lg-8 row">
                   <div class="col-lg-6"><%= f.label :last_name_kana, 'セイ' %><%= f.text_field :last_name_kana, autofocus: true, class: "form-control input-lg", required: true, placeholder: '例：山田' %></div>
                   <div class="col-lg-6"><%= f.label :first_name_kana, 'メイ' %><%= f.text_field :first_name_kana, autofocus: true, class: "form-control input-lg", required: true, placeholder: '例：太郎' %></div>
@@ -24,42 +24,42 @@
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">郵便番号</p>
+                <p class="col-lg-4 about-signup lead">郵便番号<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <%= f.text_field :postal_number, autofocus: true, class: "form-control input-lg mt-2", required: true, placeholder: '例：1234567 ※（-）無し' %>
                 </div>
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">住所</p>
+                <p class="col-lg-4 about-signup lead">住所<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <%= f.text_field :address, autofocus: true, class: "form-control input-lg mt-2", placeholder: '例：三重県津市栄町' %>
                 </div>
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">電話番号</p>
+                <p class="col-lg-4 about-signup lead">電話番号<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <%= f.text_field :phone_number, autofocus: true, class: "form-control input-lg mt-2", required: true, placeholder: '例：1234567890 ※（-）無し' %>
                 </div>
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">メールアドレス</p>
+                <p class="col-lg-4 about-signup lead">メールアドレス<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg mt-2", required: true, placeholder: '例：xxx@example.com' %>
                 </div>
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">プロフィール画像</p>
+                <p class="col-lg-4 about-signup lead">プロフィール画像<span class="required">※</span></p>
                 <div class="col-lg-8 mt-2">
                   <%= f.file_field :image %>
                 </div>
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">パスワード</p>
+                <p class="col-lg-4 about-signup lead">パスワード<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -69,7 +69,7 @@
               </div>
 
               <div class="field row">
-                <p class="col-lg-4 about-signup lead">パスワード確認</p>
+                <p class="col-lg-4 about-signup lead">パスワード確認<span class="required">※</span></p>
                 <div class="col-lg-8">
                   <%= f.label :password_confirmation, '確認用' %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-lg", required: true %>
